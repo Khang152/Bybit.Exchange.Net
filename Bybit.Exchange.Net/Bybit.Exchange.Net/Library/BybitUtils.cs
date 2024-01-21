@@ -23,7 +23,7 @@ namespace Bybit.Exchange.Net.Library
             RecvWindow = options.RecvWindow;
         }
 
-        public async Task<string> PostData(string url, object? requestData = null, bool useAPIKey = true)
+        public async Task<string> PostData(string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
         {
             string jsonPayload = requestData?.ToJsonString() ?? string.Empty;
             using var client = new HttpClient();
@@ -44,10 +44,19 @@ namespace Bybit.Exchange.Net.Library
             }
 
             var response = await client.SendAsync(request);
-            return await response.Content.ReadAsStringAsync();
+            var results = await response.Content.ReadAsStringAsync();
+
+            if (results.Contains("error sign! origin_string") && retry < 3)
+            {
+                await Task.Delay(1000);
+                retry += 1;
+                results = await PostData(url, requestData, useAPIKey, retry);
+            }
+
+            return results;
         }
 
-        public async Task<string> GetData(string url, object? requestData = null, bool useAPIKey = true)
+        public async Task<string> GetData(string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
         {
             string queryString = GenerateQueryString(requestData);
             using var client = new HttpClient();
@@ -66,7 +75,16 @@ namespace Bybit.Exchange.Net.Library
             }
 
             var response = await client.SendAsync(request);
-            return await response.Content.ReadAsStringAsync();
+            var results = await response.Content.ReadAsStringAsync();
+
+            if (results.Contains("error sign! origin_string") && retry < 3)
+            {
+                await Task.Delay(1000);
+                retry += 1;
+                results = await GetData(url, requestData, useAPIKey, retry);
+            }
+
+            return results;
         }
 
         public string GeneratePostSignature(IDictionary<string, object> parameters)
