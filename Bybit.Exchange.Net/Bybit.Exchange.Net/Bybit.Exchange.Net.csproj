@@ -4,10 +4,39 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageIcon>icon.png</PackageIcon>
+		<Title>Bybit.Exchange.Net</Title>
+		<PackageId>Bybit.Exchange.Net</PackageId>
+		<Authors>Khang152</Authors>
+		<Company>iRaidenStudio</Company>
+		<Description>Bybit.Exchange.Net is a library designed for .NET projects, tailored for seamless interaction with the Bybit crypto exchange API. With a structure closely aligned with Bybit's API documentation, it prioritizes simplicity, offering rich models, enums, and convenient logging for easy integration into .NET projects. Ideal for developers building crypto trading applications on the Bybit.</Description>
+		<Copyright>Copyright (c) 2024</Copyright>
+		<ApplicationIcon>Images\icon.ico</ApplicationIcon>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/Khang152/Bybit.Exchange.Net</PackageProjectUrl>
+		<PackageTags>Bybit Crypto Exchange Trading Library .Net</PackageTags>
+		<RepositoryUrl>https://github.com/Khang152/Bybit.Exchange.Net.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<DebugType>embedded</DebugType>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Images\icon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+		<None Include="Images\icon.ico" Pack="true" PackagePath="\" />
+		<None Include="Images\icon.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
