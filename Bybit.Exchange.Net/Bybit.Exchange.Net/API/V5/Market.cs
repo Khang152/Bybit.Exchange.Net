@@ -41,6 +41,14 @@ namespace Bybit.Exchange.Net.API.V5
                 return results;
             }
 
+            public async Task<BybitResponse<GetKlineResponse>> GetKlineAsync(GetKlineRequest requestData)
+            {
+                var requestUrl = Utils.GetUrl(GetKlineUrl, Options);
+                var response = await Utils.GetData(requestUrl, requestData, useAPIKey: false);
+                var results = Utils.GetResponse<GetKlineResponse>(response);
+                return results;
+            }
+
             public async Task<BybitResponse<GetInstrumentsInfoResponse>> GetInstrumentsInfoAsync(GetInstrumentsInfoRequest requestData)
             {
                 var requestUrl = Utils.GetUrl(GetInstrumentsInfoUrl, Options);
@@ -124,6 +132,7 @@ namespace Bybit.Exchange.Net.API.V5
             #region Define
 
             private string GetBybitServerTimesUrl { get; set; } = "/v5/market/time";
+            private string GetKlineUrl { get; set; } = "/v5/market/kline";
             private string GetInstrumentsInfoUrl { get; set; } = "/v5/market/instruments-info";
             private string GetTickersUrl { get; set; } = "/v5/market/tickers";
 

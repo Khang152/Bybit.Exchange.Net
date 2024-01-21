@@ -212,5 +212,47 @@ namespace Bybit.Exchange.Net.Data
             utaOnly, // Only for UTA account, this trading pair supports margin trading
             normalSpotOnly // Only for normal account, this trading pair supports margin trading
         }
+
+        public enum Interval
+        {
+            [EnumMember(Value = "1")]
+            Minute1 = 1,
+
+            [EnumMember(Value = "3")]
+            Minute3,
+
+            [EnumMember(Value = "5")]
+            Minute5,
+
+            [EnumMember(Value = "15")]
+            Minute15,
+
+            [EnumMember(Value = "30")]
+            Minute30,
+
+            [EnumMember(Value = "60")]
+            Minute60,
+
+            [EnumMember(Value = "120")]
+            Minute120,
+
+            [EnumMember(Value = "240")]
+            Minute240,
+
+            [EnumMember(Value = "360")]
+            Minute360,
+
+            [EnumMember(Value = "720")]
+            Minute720,
+
+            [EnumMember(Value = "D")]
+            Day,
+
+            [EnumMember(Value = "W")]
+            Week,
+
+            [EnumMember(Value = "M")]
+            Month
+        }
     }
 }
