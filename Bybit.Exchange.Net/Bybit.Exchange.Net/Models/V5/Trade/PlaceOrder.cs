@@ -136,7 +136,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// For Perps &amp; Futures, it is the conditional order trigger price.
         /// If you expect the price to rise to trigger your conditional order, make sure:
         /// triggerPrice > market price
-        /// Else, triggerPrice < market price
+        /// Else, triggerPrice &lt; market price
         /// For spot, it is the TP/SL &amp; Conditional order trigger price
         /// </para>
         /// </summary>

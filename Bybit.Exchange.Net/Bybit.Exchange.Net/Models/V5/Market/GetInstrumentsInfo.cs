@@ -66,6 +66,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// <remarks>
         /// | Product type: spot, linear, inverse, option
         /// </remarks>
+        /// </summary>
         public Category category { get; set; } = default!;
 
         public class Linear() : GetInstrumentsInfoBaseRequest

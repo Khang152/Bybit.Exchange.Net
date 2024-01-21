@@ -143,7 +143,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <term>Only endTime is passed, return range between endTime -7 days and endTime</term>
         /// </item>
         /// <item>
-        /// <term>If both are passed, the rule is endTime - startTime <= 7 days</term>
+        /// <term>If both are passed, the rule is endTime - startTime &lt;= 7 days</term>
         /// </item>
         /// </list>
         /// </summary>
