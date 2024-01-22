@@ -48,7 +48,7 @@ namespace Bybit.Exchange.Net.Library
 
             if (results.Contains("error sign! origin_string") && retry < 3)
             {
-                await Task.Delay(1000);
+                await Task.Delay(200);
                 retry += 1;
                 results = await PostData(url, requestData, useAPIKey, retry);
             }
@@ -79,7 +79,7 @@ namespace Bybit.Exchange.Net.Library
 
             if (results.Contains("error sign! origin_string") && retry < 3)
             {
-                await Task.Delay(1000);
+                await Task.Delay(200);
                 retry += 1;
                 results = await GetData(url, requestData, useAPIKey, retry);
             }
