@@ -254,5 +254,14 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "M")]
             Month
         }
+
+        public enum AccountType
+        {
+            CONTRACT, // Inverse Derivatives Account, Derivatives Account
+            UNIFIED, // Unified Trading Account
+            FUND, // Funding Account
+            SPOT, // Spot Account
+            OPTION // USDC Derivatives
+        }
     }
 }
