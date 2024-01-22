@@ -18,7 +18,6 @@
  - [Source code][source-url]
 
 ## Key Features
-
 - Built with full compatibility for .NET 8, ensuring smooth execution on the latest .NET applications and projects.
 
 - Designed with a structure closest to Bybit's API documentation, ensuring consistency and ease of understanding during integration.
@@ -30,6 +29,36 @@
 - Effortlessly log API responses, including raw data from Bybit, to enhance tracking and facilitate effective debugging throughout the development and deployment phases of your application.
 
 With flexibility, user-friendliness, and seamless integration into .NET projects, **Bybit.Exchange.Net** is a valuable resource for developers looking to build crypto trading applications on the Bybit exchange.
+
+## Quick Setup
+### Program.cs
+```csharp
+builder.Services.AddBybitExchange(
+    new BybitRestOptions()
+    {
+        Credentials = new ByBitCredentials()
+        {
+            Key = "Your Key",
+            Secret = "Your Secret",
+        }
+    });
+```
+
+### Blazor Pages
+```csharp
+@using Bybit.Exchange.Net.Library.Interface
+@using Bybit.Exchange.Net.Models.V5.Account
+@using static Bybit.Exchange.Net.Data.Enums
+@inject IBybitRestClient client
+
+protected override async Task OnInitializedAsync()
+{
+    var results = await client.Account.GetWalletBalanceAsync(new GetWalletBalanceRequest()
+    {
+        accountType = AccountType.UNIFIED,
+    });
+}
+```
 
 # Contributing Guide
  
