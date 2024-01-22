@@ -11,5 +11,11 @@ namespace Bybit.Exchange.Net.Models.Common
     {
         public string Key { get; set; } = default!;
         public string Secret { get; set; } = default!;
+
+        public ByBitCredentials(string key, string secret)
+        {
+            Secret = secret;
+            Key = key;
+        }
     }
 }
