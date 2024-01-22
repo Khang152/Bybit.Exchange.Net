@@ -59,6 +59,16 @@ protected override async Task OnInitializedAsync()
     });
 }
 ```
+### Others
+```csharp
+var client = new BybitRestClient(new BybitRestOptions()
+{
+    Credentials = new ByBitCredentials(key, secret),
+    Environment = BybitEnvironment.Live
+});
+
+var response = await client.Market.GetTickersAsync(new GetTickersRequest() { category = Category.Spot });
+```
 
 # Contributing Guide
  
