@@ -53,7 +53,7 @@ builder.Services.AddBybitExchange(
 
 protected override async Task OnInitializedAsync()
 {
-    var results = await client.Account.GetWalletBalanceAsync(new GetWalletBalanceRequest()
+    var response = await client.Account.GetWalletBalanceAsync(new GetWalletBalanceRequest()
     {
         accountType = AccountType.UNIFIED,
     });
@@ -62,12 +62,14 @@ protected override async Task OnInitializedAsync()
 ### Others
 ```csharp
 var client = new BybitRestClient(new BybitRestOptions()
-{
-    Credentials = new ByBitCredentials(key, secret),
-    Environment = BybitEnvironment.Live
-});
+    {
+        Credentials = new ByBitCredentials(key, secret),
+        Environment = BybitEnvironment.Live
+    });
 
-var response = await client.Market.GetTickersAsync(new GetTickersRequest() { category = Category.Spot });
+var response = await client.Market.GetTickersAsync(new GetTickersRequest() { 
+    category = Category.Spot 
+});
 ```
 
 # Contributing Guide
