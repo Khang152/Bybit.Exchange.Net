@@ -53,7 +53,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Buy, Sell
         /// </para>
         /// </summary>
-        public string side { get; set; } = default!;
+        public Side? side { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>orderType</c></value>

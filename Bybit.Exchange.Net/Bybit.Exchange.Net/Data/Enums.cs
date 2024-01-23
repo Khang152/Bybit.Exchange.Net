@@ -263,5 +263,11 @@ namespace Bybit.Exchange.Net.Data
             SPOT, // Spot Account
             OPTION // USDC Derivatives
         }
+
+        public enum Side
+        {
+            Buy,
+            Sell
+        }
     }
 }
