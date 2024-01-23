@@ -9,6 +9,8 @@ namespace Bybit.Exchange.Net.Library
         public Market Market { get; set; } = default!;
         public Trade Trade { get; set; } = default!;
         public Account Account { get; set; } = default!;
+        public C2CLending C2CLending { get; set; } = default!;
+
         public BybitRestOptions Options { get; set; } = default!;
 
         public BybitRestClient(BybitRestOptions options)
@@ -18,6 +20,7 @@ namespace Bybit.Exchange.Net.Library
             Market = new Market(options);
             Trade = new Trade(options);
             Account = new Account(options);
+            C2CLending = new C2CLending(options);
         }
     }
 }
