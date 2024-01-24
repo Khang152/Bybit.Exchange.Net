@@ -1,12 +1,8 @@
-﻿using Bybit.Exchange.Net.Models.Common;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+﻿using Bybit.Exchange.Net.Extensions;
+using Bybit.Exchange.Net.Models.Common;
 using System.Security.Cryptography;
 using System.Text;
-using Bybit.Exchange.Net.Extensions;
-using Microsoft.Extensions.Options;
 using static Bybit.Exchange.Net.Data.Enums;
-using Bybit.Exchange.Net.Models.V5.Trade;
 
 namespace Bybit.Exchange.Net.Library
 {
@@ -155,8 +151,16 @@ namespace Bybit.Exchange.Net.Library
 
         public string GetUrl(string url, BybitRestOptions options)
         {
-            var env = options.Environment == BybitEnvironment.Live ? BybitBaseUrl.Mainnet : BybitBaseUrl.Testnet;
-            var requestUrl = env + url;
+            var requestUrl = string.Empty;
+            if (!string.IsNullOrEmpty(options.BaseURL))
+            {
+                requestUrl = options.BaseURL + url;
+            }
+            else
+            {
+                var env = options.Environment == BybitEnvironment.Live ? BybitBaseUrl.Mainnet : BybitBaseUrl.Testnet;
+                requestUrl = env + url;
+            }
             return requestUrl;
         }
 

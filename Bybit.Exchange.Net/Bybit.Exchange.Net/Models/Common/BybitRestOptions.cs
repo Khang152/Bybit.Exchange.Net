@@ -11,6 +11,7 @@ namespace Bybit.Exchange.Net.Models.Common
     {
         public ByBitCredentials Credentials { get; set; } = default!;
         public BybitEnvironment Environment { get; set; } = default!;
+        public string BaseURL { get; set; } = default!;
         public string RecvWindow { get; set; } = default!;
 
         public BybitRestOptions()
