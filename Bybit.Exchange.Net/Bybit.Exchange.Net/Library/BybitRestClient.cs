@@ -13,6 +13,15 @@ namespace Bybit.Exchange.Net.Library
 
         public BybitRestOptions Options { get; set; } = default!;
 
+        public BybitRestClient()
+        {
+            Options = new BybitRestOptions();
+            Market = new Market(Options);
+            Trade = new Trade(Options);
+            Account = new Account(Options);
+            C2CLending = new C2CLending(Options);
+        }
+
         public BybitRestClient(BybitRestOptions options)
         {
             options ??= new BybitRestOptions();

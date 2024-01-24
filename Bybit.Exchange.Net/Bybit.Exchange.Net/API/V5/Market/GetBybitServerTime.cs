@@ -1,4 +1,5 @@
-﻿using Bybit.Exchange.Net.Models.Common;
+﻿using Bybit.Exchange.Net.Library;
+using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Market;
 
 namespace Bybit.Exchange.Net.API.V5
@@ -11,8 +12,8 @@ namespace Bybit.Exchange.Net.API.V5
 
             public async Task<BybitResponse<GetBybitServerTimeResponse>> GetBybitServerTimeAsync()
             {
-                var requestUrl = Utils.GetUrl(GetBybitServerTimeUrl, Options);
-                var response = await Utils.GetData(requestUrl, null, useAPIKey: false);
+                var requestUrl = Utils.GetUrl(Options, GetBybitServerTimeUrl);
+                var response = await Utils.GetData(Options, requestUrl, null, useAPIKey: false);
                 var results = Utils.GetResponse<GetBybitServerTimeResponse>(response);
                 return results;
             }

@@ -1,4 +1,5 @@
-﻿using Bybit.Exchange.Net.Models.Common;
+﻿using Bybit.Exchange.Net.Library;
+using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Market;
 
 namespace Bybit.Exchange.Net.API.V5
@@ -11,8 +12,8 @@ namespace Bybit.Exchange.Net.API.V5
 
             public async Task<BybitResponse<GetKlineResponse>> GetKlineAsync(GetKlineRequest requestData)
             {
-                var requestUrl = Utils.GetUrl(GetKlineUrl, Options);
-                var response = await Utils.GetData(requestUrl, requestData, useAPIKey: false);
+                var requestUrl = Utils.GetUrl(Options, GetKlineUrl);
+                var response = await Utils.GetData(Options, requestUrl, requestData, useAPIKey: false);
                 var results = Utils.GetResponse<GetKlineResponse>(response);
                 return results;
             }
