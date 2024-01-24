@@ -42,6 +42,12 @@ namespace Bybit.Exchange.Net.Library
             var response = await client.SendAsync(request);
             var results = await response.Content.ReadAsStringAsync();
 
+            if (string.IsNullOrEmpty(results))
+            {
+                results = response.ToJsonString();
+                return results;
+            }
+
             if (results.Contains("error sign! origin_string") && retry < 3)
             {
                 await Task.Delay(200);
@@ -72,6 +78,12 @@ namespace Bybit.Exchange.Net.Library
 
             var response = await client.SendAsync(request);
             var results = await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrEmpty(results))
+            {
+                results = response.ToJsonString();
+                return results;
+            }
 
             if (results.Contains("error sign! origin_string") && retry < 3)
             {
