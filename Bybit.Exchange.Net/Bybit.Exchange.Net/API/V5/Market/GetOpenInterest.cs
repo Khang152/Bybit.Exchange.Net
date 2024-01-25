@@ -8,13 +8,13 @@ namespace Bybit.Exchange.Net.API.V5
     {
         public partial class Market
         {
-            private string GetKlineUrl { get; set; } = "/v5/market/kline";
+            private string GetOpenInterestUrl { get; set; } = "/v5/market/open-interest";
 
-            public async Task<BybitResponse<GetKlineResponse>> GetKlineAsync(GetKlineRequest requestData)
+            public async Task<BybitResponse<GetOpenInterestResponse>> GetOpenInterestAsync(GetOpenInterestRequest requestData)
             {
-                var requestUrl = Utils.GetUrl(Options, GetKlineUrl);
+                var requestUrl = Utils.GetUrl(Options, GetOpenInterestUrl);
                 var response = await Utils.GetData(Options, requestUrl, requestData, useAPIKey: false);
-                var results = Utils.GetResponse<GetKlineResponse>(response);
+                var results = Utils.GetResponse<GetOpenInterestResponse>(response);
                 return results;
             }
         }
