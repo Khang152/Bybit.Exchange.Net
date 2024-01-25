@@ -34,7 +34,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// Kline interval. 1, 3, 5, 15, 30, 60, 120, 240, 360, 720, D, M, W
         /// </para>
         /// </summary>
-        public Interval interval { get; set; } = default!;
+        public Interval? interval { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>start</c></value>
