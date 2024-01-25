@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using static Bybit.Exchange.Net.Data.Enums;
+﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -257,7 +250,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Side. Buy,Sell
         /// </para>
         /// </summary>
-        public string Side { get; set; } = default!;
+        public Side? Side { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>IsLeverage</c></value>
@@ -530,7 +523,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Smp group ID. If the UID has no group, it is 0 by default
         /// </para>
         /// </summary>
-        public int SmpGroup { get; set; }
+        public int? SmpGroup { get; set; }
 
         /// <summary>
         /// <value>Property <c>SmpOrderId</c></value>

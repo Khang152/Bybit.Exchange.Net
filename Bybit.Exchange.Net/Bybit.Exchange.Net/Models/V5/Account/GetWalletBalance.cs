@@ -321,7 +321,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// When marginCollateral=false, then collateralSwitch is meaningless
             /// </para>
             /// </summary>
-            public bool MarginCollateral { get; set; }
+            public bool? MarginCollateral { get; set; }
 
             /// <summary>
             /// <value>Property <c>CollateralSwitch</c></value>
@@ -330,7 +330,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// When marginCollateral=true, then collateralSwitch is meaningful
             /// </para>
             /// </summary>
-            public bool CollateralSwitch { get; set; }
+            public bool? CollateralSwitch { get; set; }
         }
     }
 }

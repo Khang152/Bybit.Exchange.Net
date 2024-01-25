@@ -49,32 +49,32 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// Product type. spot, linear, inverse, option
         /// </para>
         /// </summary>
-        public Category category { get; set; } = default!;
+        public Category? category { get; set; } = default!;
 
         public class Linear() : GetTickersBaseRequest
         {
-            public Category category { get; set; } = Category.Linear;
+            public Category? category { get; set; } = Category.Linear;
         }
 
         public class Inverse() : GetTickersBaseRequest
         {
-            public Category category { get; set; } = Category.Inverse;
+            public Category? category { get; set; } = Category.Inverse;
         }
 
         public class Option() : GetTickersBaseRequest
         {
-            public Category category { get; set; } = Category.Option;
+            public Category? category { get; set; } = Category.Option;
         }
 
         public class Spot() : GetTickersBaseRequest
         {
-            public Category category { get; set; } = Category.Spot;
+            public Category? category { get; set; } = Category.Spot;
         }
     }
 
     public class GetTickersResponse
     {
-        public Category Category { get; set; } = default!;
+        public Category? Category { get; set; } = default!;
 
         public FullItem[] List { get; set; } = default!;
 
@@ -84,7 +84,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
 
         public class Inverse
         {
-            public Category Category { get; set; } = default!;
+            public Category? Category { get; set; } = default!;
 
             public InverseItem[] List { get; set; } = default!;
         }
@@ -119,7 +119,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
 
         public class Option
         {
-            public Category Category { get; set; } = default!;
+            public Category? Category { get; set; } = default!;
             public OptionItem[] List { get; set; } = default!;
         }
 
@@ -154,7 +154,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
 
         public class Spot
         {
-            public Category Category { get; set; } = default!;
+            public Category? Category { get; set; } = default!;
             public SpotItem[] List { get; set; } = default!;
         }
 

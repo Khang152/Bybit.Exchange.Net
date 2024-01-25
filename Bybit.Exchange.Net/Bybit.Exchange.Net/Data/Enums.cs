@@ -95,104 +95,185 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "CreateByAdminClosing")]
             CreateByAdminClosing,
 
+            /// <summary>
+            /// Futures conditional order
+            /// </summary>
             [EnumMember(Value = "CreateByStopOrder")]
-            CreateByStopOrder,             // Futures conditional order
+            CreateByStopOrder,
 
+            /// <summary>
+            /// Futures take profit order
+            /// </summary>
             [EnumMember(Value = "CreateByTakeProfit")]
-            CreateByTakeProfit,           // Futures take profit order
+            CreateByTakeProfit,
 
+            /// <summary>
+            /// Futures partial take profit order
+            /// </summary>
             [EnumMember(Value = "CreateByPartialTakeProfit")]
-            CreateByPartialTakeProfit,    // Futures partial take profit order
+            CreateByPartialTakeProfit,
 
+            /// <summary>
+            /// Futures stop loss order
+            /// </summary>
             [EnumMember(Value = "CreateByStopLoss")]
-            CreateByStopLoss,             // Futures stop loss order
+            CreateByStopLoss,
 
+            /// <summary>
+            /// Futures partial stop loss order
+            /// </summary>
             [EnumMember(Value = "CreateByPartialStopLoss")]
-            CreateByPartialStopLoss,      // Futures partial stop loss order
+            CreateByPartialStopLoss,
 
+            /// <summary>
+            ///  Futures trailing stop order
+            /// </summary>
             [EnumMember(Value = "CreateByTrailingStop")]
-            CreateByTrailingStop,         // Futures trailing stop order
+            CreateByTrailingStop,
 
+            /// <summary>
+            /// Laddered liquidation to reduce the required maintenance margin
+            /// </summary>
             [EnumMember(Value = "CreateByLiq")]
-            CreateByLiq,                  // Laddered liquidation to reduce the required maintenance margin
+            CreateByLiq,
 
+            /// <summary>
+            /// If the position is still subject to liquidation (i.e., does not meet the required maintenance margin level), the position shall be taken over by the liquidation engine and closed at the bankruptcy price.
+            /// </summary>
             [EnumMember(Value = "CreateByTakeOver_PassThrough")]
-            CreateByTakeOver_PassThrough, // If the position is still subject to liquidation (i.e., does not meet the required maintenance margin level), the position shall be taken over by the liquidation engine and closed at the bankruptcy price.
+            CreateByTakeOver_PassThrough,
 
+            /// <summary>
+            /// Auto-Deleveraging(ADL)
+            /// </summary>
             [EnumMember(Value = "CreateByAdl_PassThrough")]
-            CreateByAdl_PassThrough,      // Auto-Deleveraging(ADL)
+            CreateByAdl_PassThrough,
 
+            /// <summary>
+            /// Order placed via Paradigm
+            /// </summary>
             [EnumMember(Value = "CreateByBlock_PassThrough")]
-            CreateByBlock_PassThrough,    // Order placed via Paradigm
+            CreateByBlock_PassThrough,
 
+            /// <summary>
+            /// Order created by move position
+            /// </summary>
             [EnumMember(Value = "CreateByBlockTradeMovePosition_PassThrough")]
-            CreateByBlockTradeMovePosition_PassThrough, // Order created by move position
+            CreateByBlockTradeMovePosition_PassThrough,
 
+            /// <summary>
+            /// The close order placed via web or app position area - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByClosing")]
-            CreateByClosing,              // The close order placed via web or app position area - web/app
+            CreateByClosing,
 
+            /// <summary>
+            /// Order created via grid bot - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByFGridBot")]
-            CreateByFGridBot,             // Order created via grid bot - web/app
+            CreateByFGridBot,
 
+            /// <summary>
+            /// Order closed via grid bot - web/app
+            /// </summary>
             [EnumMember(Value = "CloseByFGridBot")]
-            CloseByFGridBot,              // Order closed via grid bot - web/app
+            CloseByFGridBot,
 
+            /// <summary>
+            /// Order created by TWAP - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByTWAP")]
-            CreateByTWAP,                 // Order created by TWAP - web/app
+            CreateByTWAP,
 
+            /// <summary>
+            ///  Order created by TV webhook - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByTVSignal")]
-            CreateByTVSignal,             // Order created by TV webhook - web/app
+            CreateByTVSignal,
 
+            /// <summary>
+            /// Order created by Mm rate close function - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByMmRateClose")]
-            CreateByMmRateClose,          // Order created by Mm rate close function - web/app
+            CreateByMmRateClose,
 
+            /// <summary>
+            /// Order created by Martingale bot - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByMartingaleBot")]
-            CreateByMartingaleBot,        // Order created by Martingale bot - web/app
+            CreateByMartingaleBot,
 
+            /// <summary>
+            /// Order closed by Martingale bot - web/app
+            /// </summary>
             [EnumMember(Value = "CloseByMartingaleBot")]
-            CloseByMartingaleBot,         // Order closed by Martingale bot - web/app
+            CloseByMartingaleBot,
 
+            /// <summary>
+            /// Order created by Ice berg strategy - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByIceBerg")]
-            CreateByIceBerg,              // Order created by Ice berg strategy - web/app
+            CreateByIceBerg,
 
+            /// <summary>
+            /// Order created by arbitrage - web/app
+            /// </summary>
             [EnumMember(Value = "CreateByArbitrage")]
-            CreateByArbitrage             // Order created by arbitrage - web/app
+            CreateByArbitrage
         }
 
         public enum CancelType
         {
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN,
+            Unknown,
 
             [EnumMember(Value = "CancelByUser")]
             CancelByUser,
 
+            /// <summary>
+            /// cancelled by reduceOnly
+            /// </summary>
             [EnumMember(Value = "CancelByReduceOnly")]
-            CancelByReduceOnly,             // cancelled by reduceOnly
+            CancelByReduceOnly,
 
             [EnumMember(Value = "CancelByPrepareLiq")]
             CancelByPrepareLiq,
 
+            /// <summary>
+            /// cancelled in order to attempt liquidation prevention by freeing up margin
+            /// </summary>
             [EnumMember(Value = "CancelAllBeforeLiq")]
-            CancelAllBeforeLiq,             // cancelled in order to attempt liquidation prevention by freeing up margin
+            CancelAllBeforeLiq,
 
             [EnumMember(Value = "CancelByPrepareAdl")]
             CancelByPrepareAdl,
 
+            /// <summary>
+            /// cancelled due to ADL
+            /// </summary>
             [EnumMember(Value = "CancelAllBeforeAdl")]
-            CancelAllBeforeAdl,             // cancelled due to ADL
+            CancelAllBeforeAdl,
 
             [EnumMember(Value = "CancelByAdmin")]
             CancelByAdmin,
 
+            /// <summary>
+            /// TP/SL order cancelled successfully
+            /// </summary>
             [EnumMember(Value = "CancelByTpSlTsClear")]
-            CancelByTpSlTsClear,            // TP/SL order cancelled successfully
+            CancelByTpSlTsClear,
 
+            /// <summary>
+            /// cancel TP/SL when the position was closed by another order
+            /// </summary>
             [EnumMember(Value = "CancelByPzSideCh")]
-            CancelByPzSideCh,               // cancel TP/SL when the position was closed by another order
+            CancelByPzSideCh,
 
+            /// <summary>
+            /// cancelled by SMP
+            /// </summary>
             [EnumMember(Value = "CancelBySmp")]
-            CancelBySmp,                    // cancelled by SMP
+            CancelBySmp,
 
             [EnumMember(Value = "CancelBySettle")]
             CancelBySettle,
@@ -330,7 +411,7 @@ namespace Bybit.Exchange.Net.Data
             Limit,
 
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN
+            Unknown
         }
 
         public enum StopOrderType
@@ -413,8 +494,11 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "Trading")]
             Trading,
 
+            /// <summary>
+            /// The unique status for USDC Perpetual 8-hour settlement
+            /// </summary>
             [EnumMember(Value = "Settling")]
-            Settling, // The unique status for USDC Perpetual 8-hour settlement
+            Settling,
 
             [EnumMember(Value = "Delivering")]
             Delivering,
@@ -431,8 +515,11 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "LinearPerpetual")]
             LinearPerpetual,
 
+            /// <summary>
+            ///  USDC Futures
+            /// </summary>
             [EnumMember(Value = "LinearFutures")]
-            LinearFutures, // USDC Futures
+            LinearFutures,
 
             [EnumMember(Value = "InverseFutures")]
             InverseFutures
@@ -440,32 +527,56 @@ namespace Bybit.Exchange.Net.Data
 
         public enum CopyTrading
         {
+            /// <summary>
+            /// Regardless of normal account or UTA account, this trading pair does not support copy trading
+            /// </summary>
             [EnumMember(Value = "none")]
-            None, // Regardless of normal account or UTA account, this trading pair does not support copy trading
+            None,
 
+            /// <summary>
+            /// For both normal account and UTA account, this trading pair supports copy trading
+            /// </summary>
             [EnumMember(Value = "both")]
-            Both, // For both normal account and UTA account, this trading pair supports copy trading
+            Both,
 
+            /// <summary>
+            /// Only for UTA account, this trading pair supports copy trading
+            /// </summary>
             [EnumMember(Value = "utaOnly")]
-            UtaOnly, // Only for UTA account, this trading pair supports copy trading
+            UtaOnly,
 
+            /// <summary>
+            /// Only for normal account, this trading pair supports copy trading
+            /// </summary>
             [EnumMember(Value = "normalOnly")]
-            NormalOnly // Only for normal account, this trading pair supports copy trading
+            NormalOnly
         }
 
         public enum MarginTrading
         {
+            /// <summary>
+            /// Regardless of normal account or UTA account, this trading pair does not support margin trading
+            /// </summary>
             [EnumMember(Value = "none")]
-            None, // Regardless of normal account or UTA account, this trading pair does not support margin trading
+            None,
 
+            /// <summary>
+            /// For both normal account and UTA account, this trading pair supports margin trading
+            /// </summary>
             [EnumMember(Value = "both")]
-            Both, // For both normal account and UTA account, this trading pair supports margin trading
+            Both,
 
+            /// <summary>
+            /// Only for UTA account, this trading pair supports margin trading
+            /// </summary>
             [EnumMember(Value = "utaOnly")]
-            UtaOnly, // Only for UTA account, this trading pair supports margin trading
+            UtaOnly,
 
+            /// <summary>
+            /// Only for normal account, this trading pair supports margin trading
+            /// </summary>
             [EnumMember(Value = "normalSpotOnly")]
-            NormalSpotOnly // Only for normal account, this trading pair supports margin trading
+            NormalSpotOnly
         }
 
         public enum Interval
@@ -512,20 +623,35 @@ namespace Bybit.Exchange.Net.Data
 
         public enum AccountType
         {
+            /// <summary>
+            /// Inverse Derivatives Account, Derivatives Account
+            /// </summary>
             [EnumMember(Value = "CONTRACT")]
-            CONTRACT, // Inverse Derivatives Account, Derivatives Account
+            CONTRACT,
 
+            /// <summary>
+            /// Unified Trading Account
+            /// </summary>
             [EnumMember(Value = "UNIFIED")]
-            UNIFIED, // Unified Trading Account
+            UNIFIED,
 
+            /// <summary>
+            /// Funding Account
+            /// </summary>
             [EnumMember(Value = "FUND")]
-            FUND, // Funding Account
+            FUND,
 
+            /// <summary>
+            /// Spot Account
+            /// </summary>
             [EnumMember(Value = "SPOT")]
-            SPOT, // Spot Account
+            SPOT,
 
+            /// <summary>
+            /// USDC Derivatives
+            /// </summary>
             [EnumMember(Value = "OPTION")]
-            OPTION // USDC Derivatives
+            OPTION
         }
 
         public enum Side
@@ -535,6 +661,57 @@ namespace Bybit.Exchange.Net.Data
 
             [EnumMember(Value = "Sell")]
             Sell
+        }
+
+        public enum ExecType
+        {
+            /// <summary>
+            /// Trade
+            /// </summary>
+            [EnumMember(Value = "Trade")]
+            Trade,
+
+            /// <summary>
+            /// Auto-Deleveraging
+            /// </summary>
+            [EnumMember(Value = "AdlTrade")]
+            AutoDeleveraging,
+
+            /// <summary>
+            /// Funding fee
+            /// </summary>
+            [EnumMember(Value = "Funding")]
+            Funding,
+
+            /// <summary>
+            /// Liquidation
+            /// </summary>
+            [EnumMember(Value = "BustTrade")]
+            Liquidation,
+
+            /// <summary>
+            /// USDC futures delivery
+            /// </summary>
+            [EnumMember(Value = "Delivery")]
+            Delivery,
+
+            /// <summary>
+            /// BlockTrade
+            /// </summary>
+            [EnumMember(Value = "BlockTrade")]
+            BlockTrade,
+
+            /// <summary>
+            /// MovePosition
+            /// </summary>
+            [EnumMember(Value = "MovePosition")]
+            MovePosition,
+
+            /// <summary>
+            /// May be returned by a classic account. Cannot query by this type
+            /// </summary>
+            [EnumMember(Value = "UNKNOWN")]
+            Unknown
         }
     }
 }

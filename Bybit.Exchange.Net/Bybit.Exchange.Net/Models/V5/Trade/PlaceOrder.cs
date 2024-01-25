@@ -29,7 +29,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </item>
         /// </list>
         /// </summary>
-        public Category category { get; set; } = default!;
+        public Category? category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>symbol</c></value>

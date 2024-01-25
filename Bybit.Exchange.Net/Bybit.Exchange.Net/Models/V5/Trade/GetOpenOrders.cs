@@ -1,11 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using static Bybit.Exchange.Net.Data.Enums;
+﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -34,7 +27,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </item>
         /// </list>
         /// </summary>
-        public Category category { get; set; } = default!;
+        public Category? category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>symbol</c></value>
@@ -168,7 +161,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// Product type
         /// </summary>
-        public Category Category { get; set; } = default!;
+        public Category? Category { get; set; } = default!;
 
         /// <summary>
         /// Refer to the cursor request parameter
@@ -366,12 +359,12 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// Reduce only. true means reduce position size
         /// </summary>
-        public bool ReduceOnly { get; set; }
+        public bool? ReduceOnly { get; set; }
 
         /// <summary>
         /// Close on trigger. What is a close on trigger order?
         /// </summary>
-        public bool CloseOnTrigger { get; set; }
+        public bool? CloseOnTrigger { get; set; }
 
         /// <summary>
         /// Place type, option used. iv, price
@@ -386,7 +379,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// SMP group ID. If the UID has no group, it is 0 by default
         /// </summary>
-        public int SmpGroup { get; set; }
+        public int? SmpGroup { get; set; }
 
         /// <summary>
         /// The counterparty's orderID which triggers this SMP execution
