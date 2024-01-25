@@ -353,17 +353,29 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "PartialStopLoss")]
             PartialStopLoss,
 
+            /// <summary>
+            /// spot TP/SL order
+            /// </summary>
             [EnumMember(Value = "tpslOrder")]
-            tpslOrder,            // spot TP/SL order
+            tpslOrder,
 
+            /// <summary>
+            /// spot Oco order
+            /// </summary>
             [EnumMember(Value = "OcoOrder")]
-            OcoOrder,             // spot Oco order
+            OcoOrder,
 
+            /// <summary>
+            /// On web or app can set MMR to close position
+            /// </summary>
             [EnumMember(Value = "MmRateClose")]
-            MmRateClose,          // On web or app can set MMR to close position
+            MmRateClose,
 
+            /// <summary>
+            /// Spot bidirectional tpsl order
+            /// </summary>
             [EnumMember(Value = "BidirectionalTpslOrder")]
-            BidirectionalTpslOrder // Spot bidirectional tpsl order
+            BidirectionalTpslOrder
         }
 
         public enum TriggerBy
