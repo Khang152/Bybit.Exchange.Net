@@ -122,7 +122,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </item>
         /// </list>
         /// </summary>
-        public OrderStatus orderStatus { get; set; } = default!;
+        public OrderStatus? orderStatus { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>startTime</c></value>
