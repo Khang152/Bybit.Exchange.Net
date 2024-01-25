@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
 
 namespace Bybit.Exchange.Net.Data
 {
@@ -712,6 +711,45 @@ namespace Bybit.Exchange.Net.Data
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
             Unknown
+        }
+
+        public enum IntervalTime
+        {
+            /// <summary>
+            /// 5 minutes interval
+            /// </summary>
+            [EnumMember(Value = "5min")]
+            Minute5,
+
+            /// <summary>
+            /// 15 minutes interval
+            /// </summary>
+            [EnumMember(Value = "15min")]
+            Minute15,
+
+            /// <summary>
+            /// 30 minutes interval
+            /// </summary>
+            [EnumMember(Value = "30min")]
+            Minute30,
+
+            /// <summary>
+            /// 1 hour interval
+            /// </summary>
+            [EnumMember(Value = "1h")]
+            OneHour,
+
+            /// <summary>
+            /// 4 hours interval
+            /// </summary>
+            [EnumMember(Value = "4h")]
+            Hour4,
+
+            /// <summary>
+            /// 1 day interval
+            /// </summary>
+            [EnumMember(Value = "1d")]
+            OneDay
         }
     }
 }

@@ -16,7 +16,7 @@
 
     public class GetLendingCoinInfoResponse
     {
-        public GetLendingCoinInfoItem[] List { get; set; } = default!;
+        public List<GetLendingCoinInfoItem> List { get; set; } = default!;
     }
 
     public class GetLendingCoinInfoItem

@@ -183,7 +183,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// The Array object
         /// </para>
         /// </summary>
-        public OrderHistoryItem[] List { get; set; } = default!;
+        public List<OrderHistoryItem> List { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>NextPageCursor</c></value>

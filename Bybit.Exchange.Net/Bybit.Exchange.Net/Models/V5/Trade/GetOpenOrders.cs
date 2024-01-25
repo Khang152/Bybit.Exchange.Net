@@ -171,7 +171,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// List of open orders
         /// </summary>
-        public OpenOrderItem[] List { get; set; } = default!;
+        public List<OpenOrderItem> List { get; set; } = default!;
     }
 
     public class OpenOrderItem

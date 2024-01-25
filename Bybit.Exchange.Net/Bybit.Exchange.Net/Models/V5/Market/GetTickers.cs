@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Bybit.Exchange.Net.Data.Enums;
+﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Market
 {
@@ -76,7 +70,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
     {
         public Category? Category { get; set; } = default!;
 
-        public FullItem[] List { get; set; } = default!;
+        public List<FullItem> List { get; set; } = default!;
 
         public class Linear : Inverse
         {
@@ -86,7 +80,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         {
             public Category? Category { get; set; } = default!;
 
-            public InverseItem[] List { get; set; } = default!;
+            public List<InverseItem> List { get; set; } = default!;
         }
 
         public class InverseItem
@@ -120,7 +114,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         public class Option
         {
             public Category? Category { get; set; } = default!;
-            public OptionItem[] List { get; set; } = default!;
+            public List<OptionItem> List { get; set; } = default!;
         }
 
         public class OptionItem
@@ -155,7 +149,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         public class Spot
         {
             public Category? Category { get; set; } = default!;
-            public SpotItem[] List { get; set; } = default!;
+            public List<SpotItem> List { get; set; } = default!;
         }
 
         public class SpotItem

@@ -49,7 +49,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
         /// The Array object
         /// </para>
         /// </summary>
-        public WalletBalanceItem[] List { get; set; } = default!;
+        public List<WalletBalanceItem> List { get; set; } = default!;
 
         public class WalletBalanceItem
         {
@@ -170,7 +170,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// The Array object
             /// </para>
             /// </summary>
-            public CoinItem[] Coin { get; set; } = default!;
+            public List<CoinItem> Coin { get; set; } = default!;
         }
 
         public class CoinItem
