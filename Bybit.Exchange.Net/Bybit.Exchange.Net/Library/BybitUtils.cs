@@ -51,8 +51,8 @@ namespace Bybit.Exchange.Net.Library
         {
             string queryString = GenerateQueryString(requestData);
             using var client = new HttpClient();
-            url = !string.IsNullOrEmpty(queryString) ? $"{url}?{queryString}" : url;
-            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var requestUrl = !string.IsNullOrEmpty(queryString) ? $"{url}?{queryString}" : url;
+            var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
 
             if (useAPIKey && !string.IsNullOrEmpty(options.Credentials.Key))
             {
