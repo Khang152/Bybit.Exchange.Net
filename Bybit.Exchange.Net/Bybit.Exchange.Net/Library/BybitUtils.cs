@@ -37,7 +37,7 @@ namespace Bybit.Exchange.Net.Library
                 return results;
             }
 
-            if (results.Contains("error sign! origin_string") && retry < 3)
+            if (results.Contains("error sign! origin_string") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
@@ -74,7 +74,7 @@ namespace Bybit.Exchange.Net.Library
                 return results;
             }
 
-            if (results.Contains("error sign! origin_string") && retry < 3)
+            if (results.Contains("error sign! origin_string") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
