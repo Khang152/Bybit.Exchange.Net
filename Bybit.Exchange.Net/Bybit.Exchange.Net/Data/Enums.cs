@@ -751,5 +751,28 @@ namespace Bybit.Exchange.Net.Data
             [EnumMember(Value = "1d")]
             OneDay
         }
+
+        public enum UnifiedMarginStatus
+        {
+            /// <summary>
+            /// Regular account
+            /// </summary>
+            RegularAccount = 1,
+
+            /// <summary>
+            /// Please ignore
+            /// </summary>
+            Ignore = 2,
+
+            /// <summary>
+            /// Unified trade account, it can trade linear perpetual, options and spot
+            /// </summary>
+            UnifiedTradeAccount = 3,
+
+            /// <summary>
+            /// UTA Pro, the pro version of Unified trade account
+            /// </summary>
+            UTAPro = 4
+        }
     }
 }
