@@ -65,7 +65,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// The start timestamp (ms)
         /// </para>
         /// </summary>
-        public int? startTime { get; set; } = default!;
+        public double? startTime { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>endTime</c></value>
@@ -73,7 +73,7 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// The end timestamp (ms)
         /// </para>
         /// </summary>
-        public int? endTime { get; set; } = default!;
+        public double? endTime { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>limit</c></value>

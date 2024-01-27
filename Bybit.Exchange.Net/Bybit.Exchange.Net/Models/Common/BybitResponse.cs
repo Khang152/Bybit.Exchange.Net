@@ -32,7 +32,7 @@ namespace Bybit.Exchange.Net.Models.Common
         /// <summary>
         /// Current timestamp (ms)
         /// </summary>
-        public double Time { get; set; } = default!;
+        public double? Time { get; set; } = default!;
 
         /// <summary>
         /// Raw Response
