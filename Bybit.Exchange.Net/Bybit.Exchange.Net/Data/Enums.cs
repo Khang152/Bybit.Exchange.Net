@@ -752,6 +752,45 @@ namespace Bybit.Exchange.Net.Data
             OneDay
         }
 
+        public enum DataRecordingPeriod
+        {
+            /// <summary>
+            /// 5 minutes interval
+            /// </summary>
+            [EnumMember(Value = "5min")]
+            Minute5,
+
+            /// <summary>
+            /// 15 minutes interval
+            /// </summary>
+            [EnumMember(Value = "15min")]
+            Minute15,
+
+            /// <summary>
+            /// 30 minutes interval
+            /// </summary>
+            [EnumMember(Value = "30min")]
+            Minute30,
+
+            /// <summary>
+            /// 1 hour interval
+            /// </summary>
+            [EnumMember(Value = "1h")]
+            OneHour,
+
+            /// <summary>
+            /// 4 hours interval
+            /// </summary>
+            [EnumMember(Value = "4h")]
+            Hour4,
+
+            /// <summary>
+            /// 4 day interval
+            /// </summary>
+            [EnumMember(Value = "4d")]
+            Day4
+        }
+
         public enum UnifiedMarginStatus
         {
             /// <summary>
