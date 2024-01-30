@@ -76,7 +76,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
         /// Derivatives does not have this field
         /// </para>
         /// </summary>
-        public Category Category { get; set; } = default!;
+        public Category? Category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>list</c></value>
