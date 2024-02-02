@@ -8,7 +8,7 @@ namespace Bybit.Exchange.Net.Library
 {
     public static class Utils
     {
-        public static async Task<string> PostData(BybitRestOptions options, string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
+        public static async Task<BybitResponse> PostData(BybitRestOptions options, string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
         {
             string jsonPayload = requestData?.ToJsonString() ?? string.Empty;
             using var client = new HttpClient();
@@ -29,15 +29,17 @@ namespace Bybit.Exchange.Net.Library
             }
 
             var response = await client.SendAsync(request);
-            var results = await response.Content.ReadAsStringAsync();
+            var results = new BybitResponse();
+            results.Content = await response.Content.ReadAsStringAsync();
+            results.Header = response.Headers.ToDictionary(a => a.Key, a => a.Value);
 
-            if (string.IsNullOrEmpty(results))
+            if (string.IsNullOrEmpty(results.Content))
             {
-                results = response.ToJsonString();
+                results.Content = response.ToJsonString();
                 return results;
             }
 
-            if (results.Contains("error sign! origin_string") && retry < 5)
+            if (results.Content.Contains("retCode") && results.Content.Contains(":10004") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
@@ -47,7 +49,7 @@ namespace Bybit.Exchange.Net.Library
             return results;
         }
 
-        public static async Task<string> GetData(BybitRestOptions options, string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
+        public static async Task<BybitResponse> GetData(BybitRestOptions options, string url, object? requestData = null, bool useAPIKey = true, int retry = 0)
         {
             string queryString = GenerateQueryString(requestData);
             using var client = new HttpClient();
@@ -66,15 +68,17 @@ namespace Bybit.Exchange.Net.Library
             }
 
             var response = await client.SendAsync(request);
-            var results = await response.Content.ReadAsStringAsync();
+            var results = new BybitResponse();
+            results.Content = await response.Content.ReadAsStringAsync();
+            results.Header = response.Headers.ToDictionary(a => a.Key, a => a.Value);
 
-            if (string.IsNullOrEmpty(results))
+            if (string.IsNullOrEmpty(results.Content))
             {
-                results = response.ToJsonString();
+                results.Content = response.ToJsonString();
                 return results;
             }
 
-            if (results.Contains("error sign! origin_string") && retry < 5)
+            if (results.Content.Contains("retCode") && results.Content.Contains(":10004") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
@@ -159,24 +163,24 @@ namespace Bybit.Exchange.Net.Library
             return requestUrl;
         }
 
-        public static BybitResponse<T> GetResponse<T>(string response)
+        public static BybitResponse<T> GetResponse<T>(BybitResponse response)
         {
             var results = new BybitResponse<T>();
 
             try
             {
-                results = response.ToJsonObject<BybitResponse<T>>();
+                results = response.ToObject<BybitResponse<T>>();
                 results ??= new BybitResponse<T>();
             }
             catch (Exception ex)
             {
                 results ??= new BybitResponse<T>();
-                results.Errors ??= new Errors();
-                results.Errors.Message = ex.Message;
-                results.Errors.StackTrace = ex.StackTrace;
+                results.Exceptions ??= new Exceptions();
+                results.Exceptions.Message = ex.Message;
+                results.Exceptions.StackTrace = ex.StackTrace;
             }
 
-            results.Raw = response;
+            results.Content = response.Content;
             return results;
         }
     }
