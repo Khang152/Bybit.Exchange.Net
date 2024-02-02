@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Net.Http.Headers;
 
 namespace Bybit.Exchange.Net.Models.Common
 {
@@ -35,17 +30,35 @@ namespace Bybit.Exchange.Net.Models.Common
         public double? Time { get; set; } = default!;
 
         /// <summary>
-        /// Raw Response
+        /// Raw Content Response
         /// </summary>
-        public string? Raw { get; set; } = default!;
+        public string? Content { get; set; } = default!;
 
         /// <summary>
         /// Error When Try Parse Result
         /// </summary>
-        public Errors? Errors { get; set; } = default!;
+        public Exceptions? Exceptions { get; set; } = default!;
+
+        /// <summary>
+        /// Header Response
+        /// </summary>
+        public Dictionary<string, IEnumerable<string>>? Header { get; set; } = default!;
     }
 
-    public class Errors
+    public class BybitResponse
+    {
+        /// <summary>
+        /// Header Response
+        /// </summary>
+        public Dictionary<string, IEnumerable<string>>? Header { get; set; } = default!;
+
+        /// <summary>
+        /// Content Response
+        /// </summary>
+        public string? Content { get; set; } = default!;
+    }
+
+    public class Exceptions
     {
         public string? Message { get; set; } = default!;
         public string? StackTrace { get; set; } = default!;
