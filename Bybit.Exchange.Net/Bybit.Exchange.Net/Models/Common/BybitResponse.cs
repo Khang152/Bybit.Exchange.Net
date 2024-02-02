@@ -30,19 +30,14 @@ namespace Bybit.Exchange.Net.Models.Common
         public double? Time { get; set; } = default!;
 
         /// <summary>
-        /// Raw Content Response
-        /// </summary>
-        public string? Content { get; set; } = default!;
-
-        /// <summary>
         /// Error When Try Parse Result
         /// </summary>
         public Exceptions? Exceptions { get; set; } = default!;
 
         /// <summary>
-        /// Header Response
+        /// Raw Information
         /// </summary>
-        public Dictionary<string, IEnumerable<string>>? Header { get; set; } = default!;
+        public BybitResponse? Infomation { get; set; } = default!;
     }
 
     public class BybitResponse
@@ -53,9 +48,14 @@ namespace Bybit.Exchange.Net.Models.Common
         public Dictionary<string, IEnumerable<string>>? Header { get; set; } = default!;
 
         /// <summary>
-        /// Content Response
+        /// Response
         /// </summary>
-        public string? Content { get; set; } = default!;
+        public string? Response { get; set; } = default!;
+
+        /// <summary>
+        /// Request
+        /// </summary>
+        public string? Request { get; set; } = default!;
     }
 
     public class Exceptions

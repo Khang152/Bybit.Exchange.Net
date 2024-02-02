@@ -20,7 +20,7 @@ namespace Bybit.Exchange.Net.Library
             if (useAPIKey && !string.IsNullOrEmpty(options.Credentials.Key))
             {
                 string timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
-                string signature = GeneratePostSignature(options, requestData);
+                string signature = GeneratePostSignature(options, timestamp, requestData);
                 request.Headers.Add("X-BAPI-API-KEY", options.Credentials.Key);
                 request.Headers.Add("X-BAPI-SIGN", signature);
                 request.Headers.Add("X-BAPI-SIGN-TYPE", "2");
@@ -30,16 +30,17 @@ namespace Bybit.Exchange.Net.Library
 
             var response = await client.SendAsync(request);
             var results = new BybitResponse();
-            results.Content = await response.Content.ReadAsStringAsync();
+            results.Request = jsonPayload;
+            results.Response = await response.Content.ReadAsStringAsync();
             results.Header = response.Headers.ToDictionary(a => a.Key, a => a.Value);
 
-            if (string.IsNullOrEmpty(results.Content))
+            if (string.IsNullOrEmpty(results.Response))
             {
-                results.Content = response.ToJsonString();
+                results.Response = response.ToJsonString();
                 return results;
             }
 
-            if (results.Content.Contains("retCode") && results.Content.Contains(":10004") && retry < 5)
+            if (results.Response.Contains("retCode") && results.Response.Contains(":10004") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
@@ -59,7 +60,7 @@ namespace Bybit.Exchange.Net.Library
             if (useAPIKey && !string.IsNullOrEmpty(options.Credentials.Key))
             {
                 string timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
-                string signature = GenerateGetSignature(options, requestData);
+                string signature = GenerateGetSignature(options, timestamp, requestData);
                 request.Headers.Add("X-BAPI-API-KEY", options.Credentials.Key);
                 request.Headers.Add("X-BAPI-SIGN", signature);
                 request.Headers.Add("X-BAPI-SIGN-TYPE", "2");
@@ -69,16 +70,17 @@ namespace Bybit.Exchange.Net.Library
 
             var response = await client.SendAsync(request);
             var results = new BybitResponse();
-            results.Content = await response.Content.ReadAsStringAsync();
+            results.Request = queryString;
+            results.Response = await response.Content.ReadAsStringAsync();
             results.Header = response.Headers.ToDictionary(a => a.Key, a => a.Value);
 
-            if (string.IsNullOrEmpty(results.Content))
+            if (string.IsNullOrEmpty(results.Response))
             {
-                results.Content = response.ToJsonString();
+                results.Response = response.ToJsonString();
                 return results;
             }
 
-            if (results.Content.Contains("retCode") && results.Content.Contains(":10004") && retry < 5)
+            if (results.Response.Contains("retCode") && results.Response.Contains(":10004") && retry < 5)
             {
                 await Task.Delay(200);
                 retry += 1;
@@ -88,44 +90,40 @@ namespace Bybit.Exchange.Net.Library
             return results;
         }
 
-        public static string GeneratePostSignature(BybitRestOptions options, IDictionary<string, object> parameters)
+        public static string GeneratePostSignature(BybitRestOptions options, string timestamp, IDictionary<string, object> parameters)
         {
-            string Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
             string paramJson = parameters.ToJsonString();
-            string rawData = Timestamp + options.Credentials.Key + options.RecvWindow + paramJson;
+            string rawData = timestamp + options.Credentials.Key + options.RecvWindow + paramJson;
 
             using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(options.Credentials.Secret));
             var signature = hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData));
             return BitConverter.ToString(signature).Replace("-", "").ToLower();
         }
 
-        public static string GeneratePostSignature(BybitRestOptions options, object? parameters)
+        public static string GeneratePostSignature(BybitRestOptions options, string timestamp, object? parameters)
         {
             if (parameters == null)
                 return string.Empty;
 
-            string Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
             string paramJson = parameters.ToJsonString();
-            string rawData = Timestamp + options.Credentials.Key + options.RecvWindow + paramJson;
+            string rawData = timestamp + options.Credentials.Key + options.RecvWindow + paramJson;
 
             using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(options.Credentials.Secret));
             var signature = hmac.ComputeHash(Encoding.UTF8.GetBytes(rawData));
             return BitConverter.ToString(signature).Replace("-", "").ToLower();
         }
 
-        public static string GenerateGetSignature(BybitRestOptions options, Dictionary<string, object> parameters)
+        public static string GenerateGetSignature(BybitRestOptions options, string timestamp, Dictionary<string, object> parameters)
         {
-            string Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
             string queryString = GenerateQueryString(parameters);
-            string rawData = Timestamp + options.Credentials.Key + options.RecvWindow + queryString;
+            string rawData = timestamp + options.Credentials.Key + options.RecvWindow + queryString;
             return ComputeSignature(options, rawData);
         }
 
-        public static string GenerateGetSignature<T>(BybitRestOptions options, T data)
+        public static string GenerateGetSignature<T>(BybitRestOptions options, string timestamp, T data)
         {
-            string Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
             string queryString = GenerateQueryString(data);
-            string rawData = Timestamp + options.Credentials.Key + options.RecvWindow + queryString;
+            string rawData = timestamp + options.Credentials.Key + options.RecvWindow + queryString;
             return ComputeSignature(options, rawData);
         }
 
@@ -169,8 +167,9 @@ namespace Bybit.Exchange.Net.Library
 
             try
             {
-                results = response.ToObject<BybitResponse<T>>();
+                results = response.Response?.ToJsonObject<BybitResponse<T>>();
                 results ??= new BybitResponse<T>();
+                results.Infomation = response.ToObject<BybitResponse>();
             }
             catch (Exception ex)
             {
@@ -180,7 +179,6 @@ namespace Bybit.Exchange.Net.Library
                 results.Exceptions.StackTrace = ex.StackTrace;
             }
 
-            results.Content = response.Content;
             return results;
         }
     }
