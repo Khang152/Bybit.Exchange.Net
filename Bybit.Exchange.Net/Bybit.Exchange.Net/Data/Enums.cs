@@ -401,6 +401,42 @@ namespace Bybit.Exchange.Net.Data
             PostOnly
         }
 
+        public enum OrderFilter
+        {
+            /// <summary>
+            /// Order
+            /// </summary>
+            [EnumMember(Value = "Order")]
+            Order,
+
+            /// <summary>
+            /// Spot TP/SL order, the assets are occupied even before the order is triggered
+            /// </summary>
+            [EnumMember(Value = "tpslOrder")]
+            TpSlOrder,
+
+            /// <summary>
+            /// Spot conditional order, the assets will not be occupied until the price of the underlying asset reaches the trigger price, and the required assets will be occupied after the Conditional order is triggered
+            /// </summary>
+            [EnumMember(Value = "StopOrder")]
+            StopOrder
+        }
+
+        public enum TpSlMode
+        {
+            /// <summary>
+            /// Entire position for TP/SL. Then, tpOrderType or slOrderType must be Market
+            /// </summary>
+            [EnumMember(Value = "Full")]
+            Full,
+
+            /// <summary>
+            /// Partial position tp/sl. Limit TP/SL order are supported. Note: When create limit tp/sl, tpslMode is required and it must be Partial
+            /// </summary>
+            [EnumMember(Value = "Partial")]
+            Partial
+        }
+
         public enum OrderType
         {
             [EnumMember(Value = "Market")]

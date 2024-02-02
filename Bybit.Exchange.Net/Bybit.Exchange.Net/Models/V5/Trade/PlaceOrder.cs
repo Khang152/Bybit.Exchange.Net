@@ -128,7 +128,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Valid for spot only
         /// </para>
         /// </summary>
-        public string orderFilter { get; set; } = default!;
+        public OrderFilter? orderFilter { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>triggerPrice</c></value>
@@ -276,7 +276,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Valid for linear &amp; inverse
         /// </para>
         /// </summary>
-        public string tpslMode { get; set; } = default!;
+        public TpSlMode? tpslMode { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>tpLimitPrice</c></value>
