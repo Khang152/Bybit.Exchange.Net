@@ -29,6 +29,6 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// The Array Object
         /// </para>
         /// </summary>
-        public PlaceOrderResponse[]? List { get; set; } = default!;
+        public List<PlaceOrderResponse>? List { get; set; } = default!;
     }
 }
