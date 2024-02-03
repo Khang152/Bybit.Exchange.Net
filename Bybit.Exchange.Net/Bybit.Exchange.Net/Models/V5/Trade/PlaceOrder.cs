@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Bybit.Exchange.Net.Data.Enums;
+﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -268,7 +263,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         public bool? mmp { get; set; } = default!;
 
         /// <summary>
-        /// <value>Property <c>tpslMode</c></value>
+        /// <value>Property <c>TpSlMode</c></value>
         /// <para>
         /// TP/SL mode
         /// Full: entire position for TP/SL. Then, tpOrderType or slOrderType must be Market
@@ -336,5 +331,13 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </summary>
         public string OrderLinkId { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>CreateAt</c></value>
+        /// <para>
+        /// Order created time (ms)
+        /// </para>
+        /// </summary>
+        public string CreateAt { get; set; } = default!;
     }
 }

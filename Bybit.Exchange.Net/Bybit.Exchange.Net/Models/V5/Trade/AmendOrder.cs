@@ -106,7 +106,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </remarks>
         /// </summary>
-        public string tpslMode { get; set; } = default!;
+        public TpSlMode? tpslMode { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>takeProfit</c></value>

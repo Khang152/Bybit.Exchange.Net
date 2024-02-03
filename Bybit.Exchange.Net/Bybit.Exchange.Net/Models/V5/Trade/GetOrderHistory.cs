@@ -414,12 +414,12 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         public string StopLoss { get; set; } = default!;
 
         /// <summary>
-        /// <value>Property <c>TpslMode</c></value>
+        /// <value>Property <c>TpSlMode</c></value>
         /// <para>
         /// TP/SL mode, Full: entire position for TP/SL. Partial: partial position tp/sl. Spot does not have this field, and Option returns always ""
         /// </para>
         /// </summary>
-        public string TpslMode { get; set; } = default!;
+        public TpSlMode? TpSlMode { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>OcoTriggerType</c></value>

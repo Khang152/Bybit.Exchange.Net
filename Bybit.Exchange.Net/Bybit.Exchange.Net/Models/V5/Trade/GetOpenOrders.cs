@@ -314,7 +314,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// TP/SL mode, Full: entire position for TP/SL. Partial: partial position tp/sl. Spot does not have this field, and Option returns always ""
         /// </summary>
-        public string TpslMode { get; set; } = default!;
+        public TpSlMode? TpSlMode { get; set; } = default!;
 
         /// <summary>
         /// The trigger type of Spot OCO order. OcoTriggerByUnknown, OcoTriggerTp, OcoTriggerBySl. Classic spot is not supported

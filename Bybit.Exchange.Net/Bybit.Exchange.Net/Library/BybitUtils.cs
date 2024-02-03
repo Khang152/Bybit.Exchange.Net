@@ -181,5 +181,26 @@ namespace Bybit.Exchange.Net.Library
 
             return results;
         }
+
+        public static BybitBatchResponse<T> GetBatchResponse<T>(BybitResponse response)
+        {
+            var results = new BybitBatchResponse<T>();
+
+            try
+            {
+                results = response.Response?.ToJsonObject<BybitBatchResponse<T>>();
+                results ??= new BybitBatchResponse<T>();
+                results.Infomation = response.ToObject<BybitResponse>();
+            }
+            catch (Exception ex)
+            {
+                results ??= new BybitBatchResponse<T>();
+                results.Exceptions ??= new Exceptions();
+                results.Exceptions.Message = ex.Message;
+                results.Exceptions.StackTrace = ex.StackTrace;
+            }
+
+            return results;
+        }
     }
 }
