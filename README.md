@@ -2,16 +2,18 @@
  [source-url]: https://github.com/Khang152/Bybit.Exchange.Net
  [license-url]: https://raw.githubusercontent.com/Khang152/Bybit.Exchange.Net/develop/LICENSE
  [logo-url]: https://raw.githubusercontent.com/Khang152/Bybit.Exchange.Net/develop/Bybit.Exchange.Net/Bybit.Exchange.Net/Images/icon.png
- [nuget-version-url]: https://img.shields.io/nuget/v/Bybit.Exchange.Net.svg?style=flat-square
- [deployment-status-url]: https://khang152.vsrm.visualstudio.com/_apis/public/Release/badge/c60f8db4-4f52-4514-ac54-145047d74cca/3/3
+ [nuget-version-url]: https://img.shields.io/nuget/v/Bybit.Exchange.Net.svg?style=for-the-badge&logo=nuget
+ [nuget-download-url]: https://img.shields.io/nuget/dt/Bybit.Exchange.Net?style=for-the-badge&logo=nuget&color=red
+ [azure-deployment-url]: https://img.shields.io/azure-devops/release/khang152/c60f8db4-4f52-4514-ac54-145047d74cca/3/3?style=for-the-badge&logo=azuredevops&label=Azure%20Deployment
  [features-wiki-url]: https://github.com/Khang152/Bybit.Exchange.Net/wiki/Features
  [api-support-wiki-url]: https://github.com/Khang152/Bybit.Exchange.Net/wiki/API-Support-Reference
  [release-note-wiki-url]: https://github.com/Khang152/Bybit.Exchange.Net/wiki/Release-Notes
  [issues-url]: https://github.com/Khang152/Bybit.Exchange.Net/issues
 
  ![logo][logo-url]
-# Bybit.Exchange.Net 
-[![NuGet version (Bybit.Exchange.Net)][nuget-version-url]][nuget-url]&nbsp;&nbsp;![Deployment status][deployment-status-url]
+# Bybit.Exchange.Net
+[![NuGet Version (Bybit.Exchange.Net)][nuget-version-url]][nuget-url]&nbsp;&nbsp;[![NuGet Download (Bybit.Exchange.Net)][nuget-download-url]][nuget-url]
+![Azure DevOps Releases][azure-deployment-url]
 
 **Bybit.Exchange.Net** is a library designed for .NET projects, tailored for seamless interaction with the Bybit crypto exchange API. With a structure closely aligned with Bybit's API documentation, it prioritizes simplicity, offering rich models, enums, and convenient logging for easy integration into .NET projects. Ideal for developers building crypto trading applications on the Bybit.
 ## Prerequisites
