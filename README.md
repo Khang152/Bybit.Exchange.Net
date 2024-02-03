@@ -12,7 +12,7 @@
 
  ![logo][logo-url]
 # Bybit.Exchange.Net
-[![NuGet Version (Bybit.Exchange.Net)][nuget-version-url]][nuget-url]&nbsp;&nbsp;[![NuGet Download (Bybit.Exchange.Net)][nuget-download-url]][nuget-url]
+[![NuGet Version (Bybit.Exchange.Net)][nuget-version-url]][nuget-url]&nbsp;[![NuGet Download (Bybit.Exchange.Net)][nuget-download-url]][nuget-url]
 ![Azure DevOps Releases][azure-deployment-url]
 
 **Bybit.Exchange.Net** is a library designed for .NET projects, tailored for seamless interaction with the Bybit crypto exchange API. With a structure closely aligned with Bybit's API documentation, it prioritizes simplicity, offering rich models, enums, and convenient logging for easy integration into .NET projects. Ideal for developers building crypto trading applications on the Bybit.
