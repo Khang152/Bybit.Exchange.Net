@@ -449,6 +449,18 @@ namespace Bybit.Exchange.Net.Data
             Unknown
         }
 
+        public enum BizType
+        {
+            [EnumMember(Value = "SPOT")]
+            Spot,
+
+            [EnumMember(Value = "DERIVATIVES")]
+            Derivatives,
+
+            [EnumMember(Value = "OPTIONS")]
+            Options
+        }
+
         public enum StopOrderType
         {
             [EnumMember(Value = "TakeProfit")]

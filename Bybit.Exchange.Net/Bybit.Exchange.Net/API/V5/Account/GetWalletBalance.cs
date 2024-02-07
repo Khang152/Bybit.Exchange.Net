@@ -1,7 +1,6 @@
 ﻿using Bybit.Exchange.Net.Library;
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Account;
-using Microsoft.Extensions.Options;
 
 namespace Bybit.Exchange.Net.API.V5
 {

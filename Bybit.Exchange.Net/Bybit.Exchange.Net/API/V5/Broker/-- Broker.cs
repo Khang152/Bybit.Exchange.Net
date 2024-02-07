@@ -4,11 +4,11 @@ namespace Bybit.Exchange.Net.API.V5
 {
     public partial class BybitRestClient
     {
-        public partial class Account
+        public partial class Broker
         {
             private BybitRestOptions Options { get; set; } = default!;
 
-            public Account(BybitRestOptions options)
+            public Broker(BybitRestOptions options)
             {
                 Options = options;
             }

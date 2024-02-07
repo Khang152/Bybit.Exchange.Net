@@ -10,6 +10,7 @@ namespace Bybit.Exchange.Net.Library
         public Trade Trade { get; set; } = default!;
         public Account Account { get; set; } = default!;
         public C2CLending C2CLending { get; set; } = default!;
+        public Broker Broker { get; set; } = default!;
 
         public BybitRestOptions Options { get; set; } = default!;
 
@@ -20,6 +21,7 @@ namespace Bybit.Exchange.Net.Library
             Trade = new Trade(Options);
             Account = new Account(Options);
             C2CLending = new C2CLending(Options);
+            Broker = new Broker(Options);
         }
 
         public BybitRestClient(BybitRestOptions options)
@@ -30,6 +32,7 @@ namespace Bybit.Exchange.Net.Library
             Trade = new Trade(options);
             Account = new Account(options);
             C2CLending = new C2CLending(options);
+            Broker = new Broker(options);
         }
     }
 }
