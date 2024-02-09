@@ -45,7 +45,7 @@ Explore the [Release Notes][release-note-wiki-url] to stay up-to-date with the l
 
 ## API Support
 
-Refer to the [API Documentation][api-support-wiki-url] for details on the current APIs supported by our project. If you have suggestions for new APIs, feel free to [open a request on GitHub][issues-url]:.
+Refer to the [API Documentation][api-support-wiki-url] for details on the current APIs supported by our project. If you have suggestions for new APIs, feel free to [open a request][issues-url].
 
 
 ## Quick Setup
@@ -90,7 +90,7 @@ var response = await client.Market.GetTickersAsync(new GetTickersRequest() {
 });
 ```
 
-# Contributing Guide
+## Contributing Guide
  
 We welcome contributions to our project! 
 Before getting started, please take a moment to read through the following guidelines:
@@ -103,7 +103,7 @@ Before getting started, please take a moment to read through the following guide
 ### Reporting Bugs
 If you have found a bug in our project, please open an issue on GitHub. When reporting a bug, please include as much detail as possible about the issue and steps to reproduce it.
 
-# Support Us with a Donation
+## Support Us with a Donation
 Consider making a donation in your preferred cryptocurrency to support our project. If the cryptocurrency you want to donate is not listed here, please reach out to us.
 
 - **USDT:** `TG8dYGsFU3euoMcjaMGq7whpFKMFh8J6u7`
@@ -111,5 +111,5 @@ Consider making a donation in your preferred cryptocurrency to support our proje
 
 Your contribution helps us continue our work and is greatly appreciated!
 
-# License
+## License
 By contributing to our project, you agree that your contributions will be licensed under the [LICENSE][license-url]
