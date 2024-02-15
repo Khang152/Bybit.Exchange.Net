@@ -24,7 +24,7 @@
         /// The start timestamp (ms)
         /// </remarks>
         /// </summary>
-        public long? startTime { get; set; }
+        public double? startTime { get; set; }
 
         /// <summary>
         /// <value>Property <c>endTime</c></value>
@@ -32,7 +32,7 @@
         /// The end timestamp (ms)
         /// </remarks>
         /// </summary>
-        public long? endTime { get; set; }
+        public double? endTime { get; set; }
 
         /// <summary>
         /// <value>Property <c>limit</c></value>

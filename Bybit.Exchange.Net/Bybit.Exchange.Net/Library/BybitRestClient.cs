@@ -9,6 +9,7 @@ namespace Bybit.Exchange.Net.Library
         public Market Market { get; set; } = default!;
         public Trade Trade { get; set; } = default!;
         public Account Account { get; set; } = default!;
+        public SpotLeverageToken SpotLeverageToken { get; set; } = default!;
         public C2CLending C2CLending { get; set; } = default!;
         public Broker Broker { get; set; } = default!;
 
@@ -20,6 +21,7 @@ namespace Bybit.Exchange.Net.Library
             Market = new Market(Options);
             Trade = new Trade(Options);
             Account = new Account(Options);
+            SpotLeverageToken = new SpotLeverageToken(Options);
             C2CLending = new C2CLending(Options);
             Broker = new Broker(Options);
         }
@@ -31,6 +33,7 @@ namespace Bybit.Exchange.Net.Library
             Market = new Market(options);
             Trade = new Trade(options);
             Account = new Account(options);
+            SpotLeverageToken = new SpotLeverageToken(options);
             C2CLending = new C2CLending(options);
             Broker = new Broker(options);
         }
