@@ -51,13 +51,16 @@ Refer to the [API Documentation][api-support-wiki-url] for details on the curren
 ## Quick Setup
 ### Program.cs
 ```csharp
+using Bybit.Exchange.Net.Extensions;
+using Bybit.Exchange.Net.Models.Common;
+
 builder.Services.AddBybitExchange(
     new BybitRestOptions()
     {
         Credentials = new ByBitCredentials()
         {
-            Key = "Your Key",
-            Secret = "Your Secret",
+            Key = "key",
+            Secret = "secret",
         }
     });
 ```
@@ -71,7 +74,7 @@ builder.Services.AddBybitExchange(
 
 protected override async Task OnInitializedAsync()
 {
-    var response = await client.Account.GetWalletBalanceAsync(new GetWalletBalanceRequest()
+    var response = await client.V5.Account.GetWalletBalanceAsync(new GetWalletBalanceRequest()
     {
         accountType = AccountType.UNIFIED,
     });
@@ -79,13 +82,18 @@ protected override async Task OnInitializedAsync()
 ```
 ### Others
 ```csharp
+using Bybit.Exchange.Net.Library
+using Bybit.Exchange.Net.Models.Common
+using Bybit.Exchange.Net.Models.V5.Market
+using static Bybit.Exchange.Net.Data.Enums
+
 var client = new BybitRestClient(new BybitRestOptions()
     {
         Credentials = new ByBitCredentials(key, secret),
         Environment = BybitEnvironment.Live
     });
 
-var response = await client.Market.GetTickersAsync(new GetTickersRequest() { 
+var response = await client.V5.Market.GetTickersAsync(new GetTickersRequest() { 
     category = Category.Spot 
 });
 ```
