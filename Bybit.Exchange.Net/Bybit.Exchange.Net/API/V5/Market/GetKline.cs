@@ -17,6 +17,20 @@ namespace Bybit.Exchange.Net.API
                     var requestUrl = Utils.GetUrl(Options, GetKlineUrl);
                     var response = await Utils.GetData(Options, requestUrl, requestData, useAPIKey: false);
                     var results = Utils.GetResponse<GetKlineResponse>(response);
+
+                    if (results.Result?.List?.Any() == true)
+                        results.Result.ListItems = results?.Result?.List?.Select(o => new GetKlineItem()
+                        {
+                            StartTime = o[0],
+                            OpenPrice = o[1],
+                            HighPrice = o[2],
+                            LowPrice = o[3],
+                            ClosePrice = o[4],
+                            Volume = o[5],
+                            TurnOver = o[6],
+                        }).ToList() ?? new List<GetKlineItem>();
+
+                    results ??= new BybitResponse<GetKlineResponse>();
                     return results;
                 }
             }

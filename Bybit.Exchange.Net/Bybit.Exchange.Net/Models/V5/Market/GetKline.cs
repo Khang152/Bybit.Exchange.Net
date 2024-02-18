@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Bybit.Exchange.Net.Data.Enums;
+﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Market
 {
@@ -86,5 +81,72 @@ namespace Bybit.Exchange.Net.Models.V5.Market
         /// </para>
         /// </summary>
         public string[][] List { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>list items</c></value>
+        /// <para>
+        /// An array of individual candles [startTime, openPrice, highPrice, lowPrice, closePrice, volume, turnover]
+        /// </para>
+        /// </summary>
+        public List<GetKlineItem> ListItems { get; set; } = default!;
+    }
+
+    public class GetKlineItem
+    {
+        /// <summary>
+        /// <value>Property <c>StartTime</c></value>
+        /// <para>
+        /// Start Time
+        /// </para>
+        /// </summary>
+        public string StartTime { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>OpenPrice</c></value>
+        /// <para>
+        /// Open Price
+        /// </para>
+        /// </summary>
+        public string OpenPrice { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>HighPrice</c></value>
+        /// <para>
+        /// High Price
+        /// </para>
+        /// </summary>
+        public string HighPrice { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>LowPrice</c></value>
+        /// <para>
+        /// Low Price
+        /// </para>
+        /// </summary>
+        public string LowPrice { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>ClosePrice</c></value>
+        /// <para>
+        /// Close Price
+        /// </para>
+        /// </summary>
+        public string ClosePrice { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>Volume</c></value>
+        /// <para>
+        /// Volume
+        /// </para>
+        /// </summary>
+        public string Volume { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>TurnOver</c></value>
+        /// <para>
+        /// Turn Over
+        /// </para>
+        /// </summary>
+        public string TurnOver { get; set; } = default!;
     }
 }
