@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Market;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Market
+        public partial class Endpoint
         {
-            private string GetOpenInterestUrl { get; set; } = "/v5/market/open-interest";
-
-            public async Task<BybitResponse<GetOpenInterestResponse>> GetOpenInterestAsync(GetOpenInterestRequest requestData)
+            public partial class Market
             {
-                var requestUrl = Utils.GetUrl(Options, GetOpenInterestUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData, useAPIKey: false);
-                var results = Utils.GetResponse<GetOpenInterestResponse>(response);
-                return results;
+                private string GetOpenInterestUrl { get; set; } = "/v5/market/open-interest";
+
+                public async Task<BybitResponse<GetOpenInterestResponse>> GetOpenInterestAsync(GetOpenInterestRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetOpenInterestUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData, useAPIKey: false);
+                    var results = Utils.GetResponse<GetOpenInterestResponse>(response);
+                    return results;
+                }
             }
         }
     }

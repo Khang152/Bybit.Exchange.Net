@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Trade;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Trade
+        public partial class Endpoint
         {
-            private string GetOrderHistorysUrl { get; set; } = "/v5/order/history";
-
-            public async Task<BybitResponse<GetOrderHistoryResponse>> GetOrderHistoryAsync(GetOrderHistoryRequest requestData)
+            public partial class Trade
             {
-                var requestUrl = Utils.GetUrl(Options, GetOrderHistorysUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<GetOrderHistoryResponse>(response);
-                return results;
+                private string GetOrderHistorysUrl { get; set; } = "/v5/order/history";
+
+                public async Task<BybitResponse<GetOrderHistoryResponse>> GetOrderHistoryAsync(GetOrderHistoryRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetOrderHistorysUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<GetOrderHistoryResponse>(response);
+                    return results;
+                }
             }
         }
     }

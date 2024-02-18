@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Broker;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Broker
+        public partial class Endpoint
         {
-            private string GetExchangeBrokerEarningUrl { get; set; } = "/v5/broker/earnings-info";
-
-            public async Task<BybitResponse<GetExchangeBrokerEarningResponse>> GetExchangeBrokerEarning(GetExchangeBrokerEarningRequest requestData)
+            public partial class Broker
             {
-                var requestUrl = Utils.GetUrl(Options, GetExchangeBrokerEarningUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<GetExchangeBrokerEarningResponse>(response);
-                return results;
+                private string GetExchangeBrokerEarningUrl { get; set; } = "/v5/broker/earnings-info";
+
+                public async Task<BybitResponse<GetExchangeBrokerEarningResponse>> GetExchangeBrokerEarning(GetExchangeBrokerEarningRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetExchangeBrokerEarningUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<GetExchangeBrokerEarningResponse>(response);
+                    return results;
+                }
             }
         }
     }

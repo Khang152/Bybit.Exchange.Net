@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.C2CLending;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class C2CLending
+        public partial class Endpoint
         {
-            private string DepositFundsUrl { get; set; } = "/v5/lending/purchase";
-
-            public async Task<BybitResponse<DepositFundsResponse>> DepositFundsAsync(DepositFundsRequest requestData)
+            public partial class C2CLending
             {
-                var requestUrl = Utils.GetUrl(Options, DepositFundsUrl);
-                var response = await Utils.PostData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<DepositFundsResponse>(response);
-                return results;
+                private string DepositFundsUrl { get; set; } = "/v5/lending/purchase";
+
+                public async Task<BybitResponse<DepositFundsResponse>> DepositFundsAsync(DepositFundsRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, DepositFundsUrl);
+                    var response = await Utils.PostData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<DepositFundsResponse>(response);
+                    return results;
+                }
             }
         }
     }

@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.C2CLending;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class C2CLending
+        public partial class Endpoint
         {
-            private string GetLendingAccountInfoUrl { get; set; } = "/v5/lending/account";
-
-            public async Task<BybitResponse<GetLendingAccountInfoResponse>> GetLendingAccountInfoAsync(GetLendingAccountInfoRequest requestData)
+            public partial class C2CLending
             {
-                var requestUrl = Utils.GetUrl(Options, GetLendingAccountInfoUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<GetLendingAccountInfoResponse>(response);
-                return results;
+                private string GetLendingAccountInfoUrl { get; set; } = "/v5/lending/account";
+
+                public async Task<BybitResponse<GetLendingAccountInfoResponse>> GetLendingAccountInfoAsync(GetLendingAccountInfoRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetLendingAccountInfoUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<GetLendingAccountInfoResponse>(response);
+                    return results;
+                }
             }
         }
     }

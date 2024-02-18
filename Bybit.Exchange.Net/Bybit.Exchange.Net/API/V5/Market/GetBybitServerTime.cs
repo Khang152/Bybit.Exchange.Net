@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Market;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Market
+        public partial class Endpoint
         {
-            private string GetBybitServerTimeUrl { get; set; } = "/v5/market/time";
-
-            public async Task<BybitResponse<GetBybitServerTimeResponse>> GetBybitServerTimeAsync()
+            public partial class Market
             {
-                var requestUrl = Utils.GetUrl(Options, GetBybitServerTimeUrl);
-                var response = await Utils.GetData(Options, requestUrl, null, useAPIKey: false);
-                var results = Utils.GetResponse<GetBybitServerTimeResponse>(response);
-                return results;
+                private string GetBybitServerTimeUrl { get; set; } = "/v5/market/time";
+
+                public async Task<BybitResponse<GetBybitServerTimeResponse>> GetBybitServerTimeAsync()
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetBybitServerTimeUrl);
+                    var response = await Utils.GetData(Options, requestUrl, null, useAPIKey: false);
+                    var results = Utils.GetResponse<GetBybitServerTimeResponse>(response);
+                    return results;
+                }
             }
         }
     }

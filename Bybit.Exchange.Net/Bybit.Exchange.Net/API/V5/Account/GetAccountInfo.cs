@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Account;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Account
+        public partial class Endpoint
         {
-            private string GetAccountInfoUrl { get; set; } = "/v5/account/info";
-
-            public async Task<BybitResponse<GetAccountInfoResponse>> GetAccountInfoAsync()
+            public partial class Account
             {
-                var requestUrl = Utils.GetUrl(Options, GetAccountInfoUrl);
-                var response = await Utils.GetData(Options, requestUrl, null);
-                var results = Utils.GetResponse<GetAccountInfoResponse>(response);
-                return results;
+                private string GetAccountInfoUrl { get; set; } = "/v5/account/info";
+
+                public async Task<BybitResponse<GetAccountInfoResponse>> GetAccountInfoAsync()
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetAccountInfoUrl);
+                    var response = await Utils.GetData(Options, requestUrl, null);
+                    var results = Utils.GetResponse<GetAccountInfoResponse>(response);
+                    return results;
+                }
             }
         }
     }

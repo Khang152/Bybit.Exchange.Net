@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Account;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Account
+        public partial class Endpoint
         {
-            private string GetWalletBalanceUrl { get; set; } = "/v5/account/wallet-balance";
-
-            public async Task<BybitResponse<GetWalletBalanceResponse>> GetWalletBalanceAsync(GetWalletBalanceRequest requestData)
+            public partial class Account
             {
-                var requestUrl = Utils.GetUrl(Options, GetWalletBalanceUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<GetWalletBalanceResponse>(response);
-                return results;
+                private string GetWalletBalanceUrl { get; set; } = "/v5/account/wallet-balance";
+
+                public async Task<BybitResponse<GetWalletBalanceResponse>> GetWalletBalanceAsync(GetWalletBalanceRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetWalletBalanceUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<GetWalletBalanceResponse>(response);
+                    return results;
+                }
             }
         }
     }

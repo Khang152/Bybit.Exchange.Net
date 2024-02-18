@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Broker;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Broker
+        public partial class Endpoint
         {
-            private string GetExchangeBrokerAccountInfoUrl { get; set; } = "/v5/broker/account-info";
-
-            public async Task<BybitResponse<GetExchangeBrokerAccountInfoResponse>> GetExchangeBrokerAccountInfo(GetExchangeBrokerAccountInfoRequest requestData)
+            public partial class Broker
             {
-                var requestUrl = Utils.GetUrl(Options, GetExchangeBrokerAccountInfoUrl);
-                var response = await Utils.GetData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<GetExchangeBrokerAccountInfoResponse>(response);
-                return results;
+                private string GetExchangeBrokerAccountInfoUrl { get; set; } = "/v5/broker/account-info";
+
+                public async Task<BybitResponse<GetExchangeBrokerAccountInfoResponse>> GetExchangeBrokerAccountInfo(GetExchangeBrokerAccountInfoRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, GetExchangeBrokerAccountInfoUrl);
+                    var response = await Utils.GetData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<GetExchangeBrokerAccountInfoResponse>(response);
+                    return results;
+                }
             }
         }
     }

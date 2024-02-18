@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Trade;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Trade
+        public partial class Endpoint
         {
-            private string BatchPlaceOrderUrl { get; set; } = "/v5/order/create-batch";
-
-            public async Task<BybitBatchResponse<BatchPlaceOrderResponse>> BatchPlaceOrderAsync(BatchPlaceOrderRequest requestData)
+            public partial class Trade
             {
-                var requestUrl = Utils.GetUrl(Options, BatchPlaceOrderUrl);
-                var response = await Utils.PostData(Options, requestUrl, requestData);
-                var results = Utils.GetBatchResponse<BatchPlaceOrderResponse>(response);
-                return results;
+                private string BatchPlaceOrderUrl { get; set; } = "/v5/order/create-batch";
+
+                public async Task<BybitBatchResponse<BatchPlaceOrderResponse>> BatchPlaceOrderAsync(BatchPlaceOrderRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, BatchPlaceOrderUrl);
+                    var response = await Utils.PostData(Options, requestUrl, requestData);
+                    var results = Utils.GetBatchResponse<BatchPlaceOrderResponse>(response);
+                    return results;
+                }
             }
         }
     }

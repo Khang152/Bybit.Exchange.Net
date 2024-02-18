@@ -1,17 +1,19 @@
-﻿using Bybit.Exchange.Net.Library;
-using Bybit.Exchange.Net.Models.Common;
+﻿using Bybit.Exchange.Net.Models.Common;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Market
+        public partial class Endpoint
         {
-            private BybitRestOptions Options { get; set; } = default!;
-
-            public Market(BybitRestOptions options)
+            public partial class Market
             {
-                Options = options;
+                private BybitRestOptions Options { get; set; } = default!;
+
+                public Market(BybitRestOptions options)
+                {
+                    Options = options;
+                }
             }
         }
     }

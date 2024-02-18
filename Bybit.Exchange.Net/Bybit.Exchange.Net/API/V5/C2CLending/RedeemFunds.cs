@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.C2CLending;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class C2CLending
+        public partial class Endpoint
         {
-            private string RedeemFundsUrl { get; set; } = "/v5/lending/redeem";
-
-            public async Task<BybitResponse<RedeemFundsResponse>> RedeemFundsAsync(RedeemFundsRequest requestData)
+            public partial class C2CLending
             {
-                var requestUrl = Utils.GetUrl(Options, RedeemFundsUrl);
-                var response = await Utils.PostData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<RedeemFundsResponse>(response);
-                return results;
+                private string RedeemFundsUrl { get; set; } = "/v5/lending/redeem";
+
+                public async Task<BybitResponse<RedeemFundsResponse>> RedeemFundsAsync(RedeemFundsRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, RedeemFundsUrl);
+                    var response = await Utils.PostData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<RedeemFundsResponse>(response);
+                    return results;
+                }
             }
         }
     }

@@ -1,16 +1,19 @@
 ﻿using Bybit.Exchange.Net.Models.Common;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class SpotLeverageToken
+        public partial class Endpoint
         {
-            private BybitRestOptions Options { get; set; } = default!;
-
-            public SpotLeverageToken(BybitRestOptions options)
+            public partial class SpotLeverageToken
             {
-                Options = options;
+                private BybitRestOptions Options { get; set; } = default!;
+
+                public SpotLeverageToken(BybitRestOptions options)
+                {
+                    Options = options;
+                }
             }
         }
     }

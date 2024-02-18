@@ -2,20 +2,23 @@
 using Bybit.Exchange.Net.Models.Common;
 using Bybit.Exchange.Net.Models.V5.Trade;
 
-namespace Bybit.Exchange.Net.API.V5
+namespace Bybit.Exchange.Net.API
 {
-    public partial class BybitRestClient
+    public partial class V5
     {
-        public partial class Trade
+        public partial class Endpoint
         {
-            private string CancelOrderUrl { get; set; } = "/v5/order/cancel";
-
-            public async Task<BybitResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest requestData)
+            public partial class Trade
             {
-                var requestUrl = Utils.GetUrl(Options, CancelOrderUrl);
-                var response = await Utils.PostData(Options, requestUrl, requestData);
-                var results = Utils.GetResponse<CancelOrderResponse>(response);
-                return results;
+                private string CancelOrderUrl { get; set; } = "/v5/order/cancel";
+
+                public async Task<BybitResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest requestData)
+                {
+                    var requestUrl = Utils.GetUrl(Options, CancelOrderUrl);
+                    var response = await Utils.PostData(Options, requestUrl, requestData);
+                    var results = Utils.GetResponse<CancelOrderResponse>(response);
+                    return results;
+                }
             }
         }
     }

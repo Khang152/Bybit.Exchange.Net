@@ -1,16 +1,9 @@
-﻿using Bybit.Exchange.Net.Models.Common;
-using static Bybit.Exchange.Net.API.V5.BybitRestClient;
+﻿using Bybit.Exchange.Net.API;
 
 namespace Bybit.Exchange.Net.Library.Interface
 {
     public interface IBybitRestClient
     {
-        Market Market { get; set; }
-        Trade Trade { get; set; }
-        Account Account { get; set; }
-        SpotLeverageToken SpotLeverageToken { get; set; }
-        C2CLending C2CLending { get; set; }
-        Broker Broker { get; set; }
-        BybitRestOptions Options { get; set; }
+        V5 V5 { get; set; }
     }
 }
