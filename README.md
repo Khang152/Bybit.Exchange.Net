@@ -54,15 +54,14 @@ Refer to the [API Documentation][api-support-wiki-url] for details on the curren
 using Bybit.Exchange.Net.Extensions;
 using Bybit.Exchange.Net.Models.Common;
 
-builder.Services.AddBybitExchange(
-    new BybitRestOptions()
+builder.Services.AddBybitExchange(new BybitRestOptions()
+{
+    Credentials = new ByBitCredentials()
     {
-        Credentials = new ByBitCredentials()
-        {
-            Key = "key",
-            Secret = "secret",
-        }
-    });
+        Key = "key",
+        Secret = "secret",
+    }
+});
 ```
 
 ### Blazor Pages
@@ -88,10 +87,10 @@ using Bybit.Exchange.Net.Models.V5.Market
 using static Bybit.Exchange.Net.Data.Enums
 
 var client = new BybitRestClient(new BybitRestOptions()
-    {
-        Credentials = new ByBitCredentials(key, secret),
-        Environment = BybitEnvironment.Live
-    });
+{
+    Credentials = new ByBitCredentials(key, secret),
+    Environment = BybitEnvironment.Live
+});
 
 var response = await client.V5.Market.GetTickersAsync(new GetTickersRequest() { 
     category = Category.Spot 
