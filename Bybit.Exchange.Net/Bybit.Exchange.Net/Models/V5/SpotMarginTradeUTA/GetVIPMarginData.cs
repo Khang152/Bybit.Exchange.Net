@@ -59,7 +59,7 @@ namespace Bybit.Exchange.Net.Models.V5.SpotMarginTradeUTA
         /// Whether it is allowed to be borrowed
         /// </para>
         /// </summary>
-        public bool Borrowable { get; set; } = default!;
+        public bool? Borrowable { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>collateralRatio</c></value>
@@ -99,7 +99,7 @@ namespace Bybit.Exchange.Net.Models.V5.SpotMarginTradeUTA
         /// Whether it can be used as a margin collateral currency
         /// </para>
         /// </summary>
-        public bool MarginCollateral { get; set; } = default!;
+        public bool? MarginCollateral { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>maxBorrowingAmount</c></value>
