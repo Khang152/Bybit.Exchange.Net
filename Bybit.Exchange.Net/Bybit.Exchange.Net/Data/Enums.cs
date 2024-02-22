@@ -861,5 +861,80 @@ namespace Bybit.Exchange.Net.Data
             /// </summary>
             UTAPro = 4
         }
+
+        public enum VipLevel
+        {
+            /// <summary>
+            /// No VIP
+            /// </summary>
+            [EnumMember(Value = "No VIP")]
+            NoVIP,
+
+            /// <summary>
+            /// VIP-1
+            /// </summary>
+            [EnumMember(Value = "VIP-1")]
+            VIP1,
+
+            /// <summary>
+            /// VIP-2
+            /// </summary>
+            [EnumMember(Value = "VIP-2")]
+            VIP2,
+
+            /// <summary>
+            /// VIP-3
+            /// </summary>
+            [EnumMember(Value = "VIP-3")]
+            VIP3,
+
+            /// <summary>
+            /// VIP-4
+            /// </summary>
+            [EnumMember(Value = "VIP-4")]
+            VIP4,
+
+            /// <summary>
+            /// VIP-5
+            /// </summary>
+            [EnumMember(Value = "VIP-5")]
+            VIP5,
+
+            /// <summary>
+            /// VIP-Supreme
+            /// </summary>
+            [EnumMember(Value = "VIP-Supreme")]
+            VIPSupreme,
+
+            /// <summary>
+            /// PRO-1
+            /// </summary>
+            [EnumMember(Value = "PRO-1")]
+            PRO1,
+
+            /// <summary>
+            /// PRO-2
+            /// </summary>
+            [EnumMember(Value = "PRO-2")]
+            PRO2,
+
+            /// <summary>
+            /// PRO-3
+            /// </summary>
+            [EnumMember(Value = "PRO-3")]
+            PRO3,
+
+            /// <summary>
+            /// PRO-4
+            /// </summary>
+            [EnumMember(Value = "PRO-4")]
+            PRO4,
+
+            /// <summary>
+            /// PRO-5
+            /// </summary>
+            [EnumMember(Value = "PRO-5")]
+            PRO5
+        }
     }
 }
