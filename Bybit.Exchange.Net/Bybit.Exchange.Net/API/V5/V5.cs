@@ -10,6 +10,7 @@ namespace Bybit.Exchange.Net.API
         public Account Account { get; set; } = default!;
         public SpotLeverageToken SpotLeverageToken { get; set; } = default!;
         public SpotMarginTradeUTA SpotMarginTradeUTA { get; set; } = default!;
+        public InstitutionalLoan InstitutionalLoan { get; set; } = default!;
         public C2CLending C2CLending { get; set; } = default!;
         public Broker Broker { get; set; } = default!;
 
@@ -23,6 +24,7 @@ namespace Bybit.Exchange.Net.API
             Account = new Account(Options);
             SpotLeverageToken = new SpotLeverageToken(Options);
             SpotMarginTradeUTA = new SpotMarginTradeUTA(Options);
+            InstitutionalLoan = new InstitutionalLoan(Options);
             C2CLending = new C2CLending(Options);
             Broker = new Broker(Options);
         }
@@ -36,6 +38,7 @@ namespace Bybit.Exchange.Net.API
             Account = new Account(options);
             SpotLeverageToken = new SpotLeverageToken(options);
             SpotMarginTradeUTA = new SpotMarginTradeUTA(options);
+            InstitutionalLoan = new InstitutionalLoan(options);
             C2CLending = new C2CLending(options);
             Broker = new Broker(options);
         }
