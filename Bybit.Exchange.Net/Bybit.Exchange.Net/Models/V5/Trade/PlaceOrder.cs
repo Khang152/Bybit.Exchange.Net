@@ -109,7 +109,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Valid for linear &amp; inverse
         /// </para>
         /// </summary>
-        public TriggerDirection? triggerDirection { get; set; } = default!;
+        public int? triggerDirection { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>orderFilter</c></value>
@@ -174,7 +174,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// 2: hedge-mode Sell side
         /// </para>
         /// </summary>
-        public PositionIdx? positionIdx { get; set; } = default!;
+        public int? positionIdx { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>orderLinkId</c></value>
