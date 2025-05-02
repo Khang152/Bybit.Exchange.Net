@@ -68,7 +68,7 @@
             /// ladder
             /// </para>
             /// </summary>
-            public string ladder { get; set; } = default!;
+            public string Ladder { get; set; } = default!;
 
             /// <summary>
             /// <value>Property <c>convertRatio</c></value>
@@ -76,7 +76,7 @@
             /// Margin coin convert ratio
             /// </para>
             /// </summary>
-            public string convertRatio { get; set; } = default!;
+            public string ConvertRatio { get; set; } = default!;
         }
     }
 }
