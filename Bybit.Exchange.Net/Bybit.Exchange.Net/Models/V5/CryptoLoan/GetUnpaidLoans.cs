@@ -1,4 +1,4 @@
-﻿namespace Bybit.Exchange.Net.Models.V5.InstitutionalLoan
+﻿namespace Bybit.Exchange.Net.Models.V5.CryptoLoan
 {
     public class GetUnpaidLoansRequest
     {

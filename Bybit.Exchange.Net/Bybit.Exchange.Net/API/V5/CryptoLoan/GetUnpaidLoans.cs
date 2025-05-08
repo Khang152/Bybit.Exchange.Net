@@ -1,6 +1,6 @@
 ﻿using Bybit.Exchange.Net.Library;
 using Bybit.Exchange.Net.Models.Common;
-using Bybit.Exchange.Net.Models.V5.InstitutionalLoan;
+using Bybit.Exchange.Net.Models.V5.CryptoLoan;
 
 namespace Bybit.Exchange.Net.API
 {
@@ -8,7 +8,7 @@ namespace Bybit.Exchange.Net.API
     {
         public partial class Endpoint
         {
-            public partial class InstitutionalLoan
+            public partial class CryptoLoan
             {
                 private string GetUnpaidLoansUrl { get; set; } = "/v5/crypto-loan/ongoing-orders";
 
