@@ -24,7 +24,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </item>
         /// </list>
         /// </summary>
-        public Category? category { get; set; } = default!;
+        public required Category category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>symbol</c></value>
@@ -32,7 +32,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Symbol name
         /// </para>
         /// </summary>
-        public string symbol { get; set; } = default!;
+        public required string symbol { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>isLeverage</c></value>
