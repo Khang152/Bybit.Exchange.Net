@@ -770,6 +770,18 @@ namespace Bybit.Exchange.Net.Data
             MovePosition,
 
             /// <summary>
+            /// SessionSettlePnL
+            /// </summary>
+            [EnumMember(Value = "SessionSettlePnL")]
+            SessionSettlePnL,
+
+            /// <summary>
+            /// Settle
+            /// </summary>
+            [EnumMember(Value = "Settle")]
+            Settle,
+
+            /// <summary>
             /// May be returned by a classic account. Cannot query by this type
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
