@@ -9,6 +9,8 @@ namespace Bybit.Exchange.Net.API
         public Trade Trade { get; set; } = default!;
         public Position Position { get; set; } = default!;
         public Account Account { get; set; } = default!;
+        public Asset Asset { get; set; } = default!;
+        public User User { get; set; } = default!;
         public SpotLeverageToken SpotLeverageToken { get; set; } = default!;
         public SpotMarginTradeUTA SpotMarginTradeUTA { get; set; } = default!;
         public CryptoLoan CryptoLoan { get; set; } = default!;
@@ -25,6 +27,8 @@ namespace Bybit.Exchange.Net.API
             Trade = new Trade(Options);
             Position = new Position(Options);
             Account = new Account(Options);
+            Asset = new Asset(Options);
+            User = new User(Options);
             SpotLeverageToken = new SpotLeverageToken(Options);
             SpotMarginTradeUTA = new SpotMarginTradeUTA(Options);
             CryptoLoan = new CryptoLoan(Options);
@@ -41,6 +45,8 @@ namespace Bybit.Exchange.Net.API
             Trade = new Trade(options);
             Position = new Position(options);
             Account = new Account(options);
+            Asset = new Asset(Options);
+            User = new User(options);
             SpotLeverageToken = new SpotLeverageToken(options);
             SpotMarginTradeUTA = new SpotMarginTradeUTA(options);
             CryptoLoan = new CryptoLoan(options);
