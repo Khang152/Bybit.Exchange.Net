@@ -86,16 +86,28 @@ namespace Bybit.Exchange.Net.Models.Common
         /// </summary>
         public Dictionary<string, IEnumerable<string>>? Header { get; set; } = default!;
 
+
         /// <summary>
         /// Response
         /// </summary>
         public string? Response { get; set; } = default!;
+
+        public ResponseDetails? ResponseDetails { get; set; } = default!;
 
         /// <summary>
         /// Request
         /// </summary>
         public string? Request { get; set; } = default!;
     }
+
+
+    public class ResponseDetails
+    {
+        public bool? IsSuccessStatusCode { get; set; } = default!;
+        public string? StatusCode { get; set; } = default!;
+        public string? ReasonPhrase { get; set; } = default!;
+    }
+
 
     public class RetExtInfoBatchList
     {

@@ -177,6 +177,14 @@ namespace Bybit.Exchange.Net.Library
                 results = response.Response?.ToJsonObject<BybitResponse<T>>();
                 results ??= new BybitResponse<T>();
                 results.Information = response.ToObject<BybitResponse>();
+
+                var responseDetails = response.Response?.ToJsonObject<ResponseDetails>();
+                if (responseDetails?.IsSuccessStatusCode == false)
+                {
+                    results.Information.ResponseDetails = responseDetails;
+                    results.RetCode = 999;
+                }
+                    
             }
             catch (Exception ex)
             {
