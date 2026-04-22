@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 
 namespace Bybit.Exchange.Net.Data
@@ -233,7 +233,22 @@ namespace Bybit.Exchange.Net.Data
             /// Order created by arbitrage - web/app
             /// </summary>
             [EnumMember(Value = "CreateByArbitrage")]
-            CreateByArbitrage
+            CreateByArbitrage,
+
+            [EnumMember(Value = "CreateByFutureSpread")]
+            CreateByFutureSpread,
+
+            [EnumMember(Value = "CreateBySettle")]
+            CreateBySettle,
+
+            [EnumMember(Value = "CreateByTrailingProfit")]
+            CreateByTrailingProfit,
+
+            [EnumMember(Value = "CreateByDdh")]
+            CreateByDdh,
+
+            [EnumMember(Value = "CreateByBboOrder")]
+            CreateByBboOrder
         }
 
         public enum CancelType
@@ -314,7 +329,16 @@ namespace Bybit.Exchange.Net.Data
             CancelByCrossReachMaxTradeNum,
 
             [EnumMember(Value = "CancelByDCP")]
-            CancelByDCP
+            CancelByDCP,
+
+            [EnumMember(Value = "CancelByRebalance")]
+            CancelByRebalance,
+
+            [EnumMember(Value = "CancelByOCOTpCanceledBySlTriggered")]
+            CancelByOCOTpCanceledBySlTriggered,
+
+            [EnumMember(Value = "CancelByOCOSlCanceledByTpTriggered")]
+            CancelByOCOSlCanceledByTpTriggered
         }
 
         public enum RejectReason
@@ -413,7 +437,10 @@ namespace Bybit.Exchange.Net.Data
             /// PostOnly
             /// </summary>
             [EnumMember(Value = "PostOnly")]
-            PostOnly
+            PostOnly,
+
+            [EnumMember(Value = "RPI")]
+            RPI
         }
 
         public enum OrderFilter
@@ -518,7 +545,10 @@ namespace Bybit.Exchange.Net.Data
             /// Spot bidirectional tpsl order
             /// </summary>
             [EnumMember(Value = "BidirectionalTpslOrder")]
-            BidirectionalTpslOrder
+            BidirectionalTpslOrder,
+
+            [EnumMember(Value = "TrailingProfit")]
+            TrailingProfit
         }
 
         public enum TriggerBy
@@ -785,7 +815,10 @@ namespace Bybit.Exchange.Net.Data
             /// May be returned by a classic account. Cannot query by this type
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            Unknown
+            Unknown,
+
+            [EnumMember(Value = "FutureSpread")]
+            FutureSpread
         }
 
         public enum IntervalTime

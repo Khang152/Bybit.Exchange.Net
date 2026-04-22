@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Position
 {
@@ -88,12 +88,12 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// <summary>
         /// The order type when take profit is triggered. Market(default), Limit. For tpslMode=Full, it only supports tpOrderType="Market"
         /// </summary>
-        public string? tpOrderType { get; set; }
+        public OrderType? tpOrderType { get; set; }
 
         /// <summary>
         /// The order type when stop loss is triggered. Market(default), Limit. For tpslMode=Full, it only supports slOrderType="Market"
         /// </summary>
-        public string? slOrderType { get; set; }
+        public OrderType? slOrderType { get; set; }
 
         /// <summary>
         /// <value>Property <c>positionIdx</c></value>

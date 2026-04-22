@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -134,7 +134,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </item>
         /// </list>
         /// </summary>
-        public string orderFilter { get; set; } = default!;
+        public OrderFilter? orderFilter { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>limit</c></value>
@@ -161,7 +161,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// Product type
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string? Category { get; set; } = default!;
 
         /// <summary>
         /// Refer to the cursor request parameter
@@ -219,27 +219,27 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// Position index. Used to identify positions in different position modes.
         /// </summary>
-        public PositionIdx? PositionIdx { get; set; }
+        public int? PositionIdx { get; set; }
 
         /// <summary>
         /// Order status
         /// </summary>
-        public OrderStatus? OrderStatus { get; set; } = default!;
+        public string? OrderStatus { get; set; } = default!;
 
         /// <summary>
         /// Order create type. Only for category=linear or inverse. Spot, Option do not have this key.
         /// </summary>
-        public CreateType? CreateType { get; set; } = default!;
+        public string? CreateType { get; set; } = default!;
 
         /// <summary>
         /// Cancel type
         /// </summary>
-        public CancelType? CancelType { get; set; } = default!;
+        public string? CancelType { get; set; } = default!;
 
         /// <summary>
         /// Reject reason. Classic spot is not supported
         /// </summary>
-        public RejectReason? RejectReason { get; set; } = default!;
+        public string? RejectReason { get; set; } = default!;
 
         /// <summary>
         /// Average filled price. UTA: returns "" for those orders without avg price. Classic account: returns "0" for those orders without avg price.
@@ -274,17 +274,17 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// Time in force
         /// </summary>
-        public TimeInForce? TimeInForce { get; set; } = default!;
+        public string? TimeInForce { get; set; } = default!;
 
         /// <summary>
         /// Order type. Market, Limit. For TP/SL order, it means the order type after triggered
         /// </summary>
-        public OrderType? OrderType { get; set; } = default!;
+        public string? OrderType { get; set; } = default!;
 
         /// <summary>
         /// Stop order type
         /// </summary>
-        public StopOrderType? StopOrderType { get; set; } = default!;
+        public string? StopOrderType { get; set; } = default!;
 
         /// <summary>
         /// Implied volatility
@@ -314,7 +314,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// TP/SL mode, Full: entire position for TP/SL. Partial: partial position tp/sl. Spot does not have this field, and Option returns always ""
         /// </summary>
-        public TpSlMode? TpSlMode { get; set; } = default!;
+        public string? TpSlMode { get; set; } = default!;
 
         /// <summary>
         /// The trigger type of Spot OCO order. OcoTriggerByUnknown, OcoTriggerTp, OcoTriggerBySl. Classic spot is not supported
@@ -334,22 +334,22 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// The price type to trigger take profit
         /// </summary>
-        public TriggerBy? TpTriggerBy { get; set; } = default!;
+        public string? TpTriggerBy { get; set; } = default!;
 
         /// <summary>
         /// The price type to trigger stop loss
         /// </summary>
-        public TriggerBy? SlTriggerBy { get; set; } = default!;
+        public string? SlTriggerBy { get; set; } = default!;
 
         /// <summary>
         /// Trigger direction. 1: rise, 2: fall
         /// </summary>
-        public TriggerDirection? TriggerDirection { get; set; }
+        public int? TriggerDirection { get; set; }
 
         /// <summary>
         /// The price type of trigger price
         /// </summary>
-        public TriggerBy? TriggerBy { get; set; } = default!;
+        public string? TriggerBy { get; set; } = default!;
 
         /// <summary>
         /// Last price when placing the order
@@ -374,7 +374,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// <summary>
         /// SMP execution type
         /// </summary>
-        public SmpType? SmpType { get; set; } = default!;
+        public string? SmpType { get; set; } = default!;
 
         /// <summary>
         /// SMP group ID. If the UID has no group, it is 0 by default
