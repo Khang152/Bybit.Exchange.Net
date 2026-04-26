@@ -17,10 +17,12 @@ namespace Bybit.Exchange.Net.Models.Common
         // === MAINNET WebSocket ===
         public const string WsMainnetPrivate = "wss://stream.bybit.com/v5/private";
         public const string WsMainnetTrade = "wss://stream.bybit.com/v5/trade";
+        public const string WsMainnetPublicBase = "wss://stream.bybit.com/v5/public/";
 
         // === TESTNET WebSocket ===
         public const string WsTestnetPrivate = "wss://stream-testnet.bybit.com/v5/private";
         public const string WsTestnetTrade = "wss://stream-testnet.bybit.com/v5/trade";
+        public const string WsTestnetPublicBase = "wss://stream-testnet.bybit.com/v5/public/";
 
         // === DEMO WebSocket ===
         // Demo only supports private streams; public data uses mainnet; WS Trade NOT supported

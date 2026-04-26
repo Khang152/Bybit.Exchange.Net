@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Bybit.Exchange.Net.Models.V5.WebSocket
+namespace Bybit.Exchange.Net.Models.V5.WebSocket.Trade
 {
     /// <summary>
     /// Trade WebSocket response wrapper.

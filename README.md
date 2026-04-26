@@ -136,6 +136,56 @@ var tradeResponse = await wsClient.CreateOrderAsync(new PlaceOrderRequest()
 });
 ```
 
+### WebSocket Public Streams
+```csharp
+using Bybit.Exchange.Net.Library;
+using Bybit.Exchange.Net.Models.Common;
+using Bybit.Exchange.Net.Models.V5.WebSocket.Public;
+using static Bybit.Exchange.Net.Data.Enums;
+
+var wsClient = new BybitWebSocketClient(new BybitWebSocketOptions()
+{
+    Environment = BybitEnvironment.Live
+});
+
+// Register handlers before connecting
+wsClient.OnOrderbookUpdate(msg => {
+    Console.WriteLine($"[{msg.Type}] {msg.Topic} — Bids: {msg.Data.Bids?.Count}, Asks: {msg.Data.Asks?.Count}");
+});
+
+wsClient.OnTickerUpdate(msg => {
+    Console.WriteLine($"Ticker {msg.Data.Symbol}: Last={msg.Data.LastPrice}, 24h%={msg.Data.Price24hPcnt}");
+});
+
+wsClient.OnKlineUpdate(msg => {
+    foreach (var k in msg.Data)
+        Console.WriteLine($"Kline {k.Interval}: O={k.Open} H={k.High} L={k.Low} C={k.Close}");
+});
+
+wsClient.OnPublicTradeUpdate(msg => {
+    foreach (var t in msg.Data)
+        Console.WriteLine($"Trade {t.Symbol}: {t.Side} {t.Size}@{t.Price}");
+});
+
+wsClient.OnLiquidationUpdate(msg => {
+    foreach (var l in msg.Data)
+        Console.WriteLine($"Liquidation {l.Symbol}: {l.Side} {l.Size}@{l.Price}");
+});
+
+// Connect to Linear public channel
+await wsClient.ConnectPublicAsync(PublicChannelType.Linear);
+await wsClient.SubscribePublicAsync(PublicChannelType.Linear, 
+    "orderbook.50.BTCUSDT", 
+    "tickers.BTCUSDT", 
+    "kline.1.BTCUSDT");
+
+// Connect to Spot channel simultaneously (multi-connection)
+await wsClient.ConnectPublicAsync(PublicChannelType.Spot);
+await wsClient.SubscribePublicAsync(PublicChannelType.Spot, 
+    "tickers.ETHUSDT", 
+    "publicTrade.ETHUSDT");
+```
+
 ## Contributing Guide
  
 We welcome contributions to our project! 

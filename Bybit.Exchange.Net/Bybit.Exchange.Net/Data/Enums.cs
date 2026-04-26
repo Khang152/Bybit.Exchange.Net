@@ -17,6 +17,21 @@ namespace Bybit.Exchange.Net.Data
             Testnet = 2,
         };
 
+        public enum PublicChannelType
+        {
+            [Description("spot")]
+            Spot = 0,
+
+            [Description("linear")]
+            Linear = 1,
+
+            [Description("inverse")]
+            Inverse = 2,
+
+            [Description("option")]
+            Option = 3,
+        };
+
         public enum Category
         {
             [EnumMember(Value = "spot")]
