@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -175,7 +175,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Product type
         /// </para>
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string Category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>List</c></value>
@@ -250,7 +250,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Side. Buy,Sell
         /// </para>
         /// </summary>
-        public Side? Side { get; set; } = default!;
+        public string Side { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>IsLeverage</c></value>
@@ -266,7 +266,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Position index. Used to identify positions in different position modes
         /// </para>
         /// </summary>
-        public PositionIdx? PositionIdx { get; set; } = default!;
+        public int? PositionIdx { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>OrderStatus</c></value>
@@ -274,7 +274,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Order status
         /// </para>
         /// </summary>
-        public OrderStatus? OrderStatus { get; set; } = default!;
+        public string OrderStatus { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>CreateType</c></value>
@@ -282,7 +282,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Order create type
         /// </para>
         /// </summary>
-        public CreateType? CreateType { get; set; } = default!;
+        public string CreateType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>CancelType</c></value>
@@ -290,7 +290,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Cancel type
         /// </para>
         /// </summary>
-        public CancelType? CancelType { get; set; } = default!;
+        public string CancelType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>RejectReason</c></value>
@@ -298,7 +298,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Reject reason. Classic spot is not supported
         /// </para>
         /// </summary>
-        public RejectReason? RejectReason { get; set; } = default!;
+        public string RejectReason { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>AvgPrice</c></value>
@@ -354,7 +354,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Time in force
         /// </para>
         /// </summary>
-        public TimeInForce? TimeInForce { get; set; } = default!;
+        public string TimeInForce { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>OrderType</c></value>
@@ -363,7 +363,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Block trade Roll Back, Block trade-Limit: Unique enum values for Unified account block trades
         /// </para>
         /// </summary>
-        public OrderType? OrderType { get; set; } = default!;
+        public string OrderType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>StopOrderType</c></value>
@@ -371,7 +371,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Stop order type
         /// </para>
         /// </summary>
-        public StopOrderType? StopOrderType { get; set; } = default!;
+        public string StopOrderType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>OrderIv</c></value>
@@ -419,7 +419,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// TP/SL mode, Full: entire position for TP/SL. Partial: partial position tp/sl. Spot does not have this field, and Option returns always ""
         /// </para>
         /// </summary>
-        public TpSlMode? TpSlMode { get; set; } = default!;
+        public string TpSlMode { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>OcoTriggerType</c></value>
@@ -451,7 +451,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// The price type to trigger take profit
         /// </para>
         /// </summary>
-        public TriggerBy? TpTriggerBy { get; set; } = default!;
+        public string TpTriggerBy { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>SlTriggerBy</c></value>
@@ -459,7 +459,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// The price type to trigger stop loss
         /// </para>
         /// </summary>
-        public TriggerBy? SlTriggerBy { get; set; } = default!;
+        public string SlTriggerBy { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>TriggerDirection</c></value>
@@ -467,7 +467,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Trigger direction. 1: rise, 2: fall
         /// </para>
         /// </summary>
-        public TriggerDirection? TriggerDirection { get; set; } = default!;
+        public int? TriggerDirection { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>TriggerBy</c></value>
@@ -475,7 +475,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// The price type of trigger price
         /// </para>
         /// </summary>
-        public TriggerBy? TriggerBy { get; set; } = default!;
+        public string TriggerBy { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>LastPriceOnCreated</c></value>
@@ -515,7 +515,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// SMP execution type
         /// </para>
         /// </summary>
-        public SmpType? SmpType { get; set; } = default!;
+        public string SmpType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>SmpGroup</c></value>

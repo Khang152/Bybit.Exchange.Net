@@ -119,7 +119,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Product type
         /// </para>
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string? Category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>nextPageCursor</c></value>
@@ -170,7 +170,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Side. Buy, Sell
         /// </para>
         /// </summary>
-        public Side? Side { get; set; } = default!;
+        public string? Side { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>orderPrice</c></value>
@@ -211,7 +211,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Spot, Option do not have this key
         /// </para>
         /// </summary>
-        public CreateType? CreateType { get; set; } = default!;
+        public string? CreateType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>orderType</c></value>
@@ -219,7 +219,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Order type. Market, Limit
         /// </para>
         /// </summary>
-        public OrderType? OrderType { get; set; } = default!;
+        public string? OrderType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>stopOrderType</c></value>
@@ -230,7 +230,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Classic spot is not supported
         /// </para>
         /// </summary>
-        public StopOrderType? StopOrderType { get; set; } = default!;
+        public string? StopOrderType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>execFee</c></value>
@@ -270,7 +270,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Executed type. Classic spot is not supported
         /// </para>
         /// </summary>
-        public ExecType? ExecType { get; set; } = default!;
+        public string? ExecType { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>execValue</c></value>
