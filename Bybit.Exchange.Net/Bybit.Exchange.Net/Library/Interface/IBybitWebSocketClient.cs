@@ -1,3 +1,4 @@
+using Bybit.Exchange.Net.Models.V5.Trade;
 using Bybit.Exchange.Net.Models.V5.WebSocket;
 
 namespace Bybit.Exchange.Net.Library.Interface
@@ -30,9 +31,9 @@ namespace Bybit.Exchange.Net.Library.Interface
         void OnExecutionUpdate(Action<BybitWebSocketMessage<ExecutionStreamData>> handler);
         void OnWalletUpdate(Action<BybitWebSocketMessage<WalletStreamData>> handler);
 
-        // Trade WebSocket operations
-        Task<WsTradeResponse> CreateOrderAsync(object orderRequest);
-        Task<WsTradeResponse> AmendOrderAsync(object amendRequest);
-        Task<WsTradeResponse> CancelOrderAsync(object cancelRequest);
+        // Trade WebSocket operations — reusing existing REST request/response models
+        Task<WsTradeResponse<PlaceOrderResponse>> CreateOrderAsync(PlaceOrderRequest request);
+        Task<WsTradeResponse<AmendOrderResponse>> AmendOrderAsync(AmendOrderRequest request);
+        Task<WsTradeResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request);
     }
 }

@@ -1,6 +1,7 @@
 using Bybit.Exchange.Net.Extensions;
 using Bybit.Exchange.Net.Library.Interface;
 using Bybit.Exchange.Net.Models.Common;
+using Bybit.Exchange.Net.Models.V5.Trade;
 using Bybit.Exchange.Net.Models.V5.WebSocket;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -28,8 +29,8 @@ namespace Bybit.Exchange.Net.Library
         private readonly List<Action<BybitWebSocketMessage<ExecutionStreamData>>> _executionHandlers = new();
         private readonly List<Action<BybitWebSocketMessage<WalletStreamData>>> _walletHandlers = new();
 
-        // Trade WS pending requests
-        private readonly ConcurrentDictionary<string, TaskCompletionSource<WsTradeResponse>> _pendingTradeRequests = new();
+        // Trade WS pending requests — stores raw JSON strings for typed deserialization
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<string>> _pendingTradeRequests = new();
 
         // Events
         public event Action<string> OnRawMessage = default!;
@@ -173,25 +174,25 @@ namespace Bybit.Exchange.Net.Library
 
         #region Trade WebSocket Operations
 
-        public async Task<WsTradeResponse> CreateOrderAsync(object orderRequest)
+        public async Task<WsTradeResponse<PlaceOrderResponse>> CreateOrderAsync(PlaceOrderRequest request)
         {
-            return await SendTradeRequestAsync("order.create", orderRequest);
+            return await SendTradeRequestAsync<PlaceOrderResponse>("order.create", request);
         }
 
-        public async Task<WsTradeResponse> AmendOrderAsync(object amendRequest)
+        public async Task<WsTradeResponse<AmendOrderResponse>> AmendOrderAsync(AmendOrderRequest request)
         {
-            return await SendTradeRequestAsync("order.amend", amendRequest);
+            return await SendTradeRequestAsync<AmendOrderResponse>("order.amend", request);
         }
 
-        public async Task<WsTradeResponse> CancelOrderAsync(object cancelRequest)
+        public async Task<WsTradeResponse<CancelOrderResponse>> CancelOrderAsync(CancelOrderRequest request)
         {
-            return await SendTradeRequestAsync("order.cancel", cancelRequest);
+            return await SendTradeRequestAsync<CancelOrderResponse>("order.cancel", request);
         }
 
-        private async Task<WsTradeResponse> SendTradeRequestAsync(string op, object requestData)
+        private async Task<WsTradeResponse<T>> SendTradeRequestAsync<T>(string op, object requestData)
         {
             string reqId = Guid.NewGuid().ToString("N");
-            var tcs = new TaskCompletionSource<WsTradeResponse>();
+            var tcs = new TaskCompletionSource<string>();
             _pendingTradeRequests[reqId] = tcs;
 
             string timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
@@ -216,7 +217,8 @@ namespace Bybit.Exchange.Net.Library
 
             try
             {
-                return await tcs.Task;
+                var rawJson = await tcs.Task;
+                return JsonConvert.DeserializeObject<WsTradeResponse<T>>(rawJson, JsonExtension.JsonSettings())!;
             }
             finally
             {
@@ -308,10 +310,10 @@ namespace Bybit.Exchange.Net.Library
                 // Check if it's a Trade WS response (has reqId + retCode)
                 if (json.ContainsKey("reqId") && json.ContainsKey("retCode"))
                 {
-                    var tradeResponse = JsonConvert.DeserializeObject<WsTradeResponse>(message, JsonExtension.JsonSettings());
-                    if (tradeResponse?.ReqId != null && _pendingTradeRequests.TryRemove(tradeResponse.ReqId, out var tcs))
+                    var reqId = json["reqId"]?.ToString();
+                    if (reqId != null && _pendingTradeRequests.TryRemove(reqId, out var tcs))
                     {
-                        tcs.TrySetResult(tradeResponse);
+                        tcs.TrySetResult(message);
                     }
                     return;
                 }

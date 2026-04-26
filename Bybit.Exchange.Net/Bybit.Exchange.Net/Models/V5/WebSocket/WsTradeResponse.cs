@@ -2,7 +2,11 @@ using Newtonsoft.Json;
 
 namespace Bybit.Exchange.Net.Models.V5.WebSocket
 {
-    public class WsTradeResponse
+    /// <summary>
+    /// Trade WebSocket response wrapper.
+    /// Uses generic T to reuse existing REST response models (PlaceOrderResponse, AmendOrderResponse, CancelOrderResponse).
+    /// </summary>
+    public class WsTradeResponse<T>
     {
         [JsonProperty("reqId")]
         public string ReqId { get; set; } = default!;
@@ -20,22 +24,13 @@ namespace Bybit.Exchange.Net.Models.V5.WebSocket
         public string ConnId { get; set; } = default!;
 
         [JsonProperty("data")]
-        public WsTradeResponseData Data { get; set; } = default!;
+        public T Data { get; set; } = default!;
 
         [JsonProperty("retExtInfo")]
         public dynamic RetExtInfo { get; set; } = default!;
 
         [JsonProperty("header")]
         public WsTradeResponseHeader Header { get; set; } = default!;
-    }
-
-    public class WsTradeResponseData
-    {
-        [JsonProperty("orderId")]
-        public string OrderId { get; set; } = default!;
-
-        [JsonProperty("orderLinkId")]
-        public string OrderLinkId { get; set; } = default!;
     }
 
     public class WsTradeResponseHeader

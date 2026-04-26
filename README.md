@@ -27,7 +27,7 @@
 The [Features][features-wiki-url] documentation provides an in-depth look at the functionalities and capabilities of our project. Understanding the available features.
 
 ## Key Features
-- Built with full compatibility for .NET 8 or .Net 9, ensuring smooth execution on the latest .NET applications and projects.
+- Built with full compatibility for .NET 8, .NET 9, .NET 10 ensuring smooth execution on the latest .NET applications and projects.
 
 - Designed with a structure closest to Bybit's API documentation, ensuring consistency and ease of understanding during integration.
 
@@ -94,6 +94,45 @@ var client = new BybitRestClient(new BybitRestOptions()
 
 var response = await client.V5.Market.GetTickersAsync(new GetTickersRequest() { 
     category = Category.Spot 
+});
+```
+
+### WebSocket Integration
+```csharp
+using Bybit.Exchange.Net.Library;
+using Bybit.Exchange.Net.Models.Common;
+using Bybit.Exchange.Net.Models.V5.Trade;
+using Bybit.Exchange.Net.Models.V5.WebSocket;
+using static Bybit.Exchange.Net.Data.Enums;
+
+var wsOptions = new BybitWebSocketOptions()
+{
+    Credentials = new ByBitCredentials("key", "secret"),
+    Environment = BybitEnvironment.Testnet
+};
+
+var wsClient = new BybitWebSocketClient(wsOptions);
+
+// 1. Setup Event Handlers
+wsClient.OnOrderUpdate(msg => {
+    Console.WriteLine($"Order Update: {msg.Data.Count} orders received");
+});
+
+// 2. Connect to Private Stream (Order, Position, Wallet, Execution)
+await wsClient.ConnectPrivateAsync();
+await wsClient.AuthenticateAsync();
+await wsClient.SubscribeAsync("order", "position");
+
+// 3. Connect to Trade Stream (Place, Amend, Cancel Orders)
+await wsClient.ConnectTradeAsync();
+await wsClient.AuthenticateAsync();
+var tradeResponse = await wsClient.CreateOrderAsync(new PlaceOrderRequest() 
+{ 
+    symbol = "BTCUSDT", 
+    side = Side.Buy, 
+    orderType = OrderType.Market, 
+    qty = "0.01", 
+    category = Category.Linear 
 });
 ```
 
