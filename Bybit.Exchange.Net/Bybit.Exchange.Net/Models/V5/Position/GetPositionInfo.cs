@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Position
 {
@@ -76,7 +76,7 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// Product type
         /// </para>
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string Category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>list</c></value>
@@ -100,7 +100,7 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// 2: Sell side of both side mode
         /// </para>
         /// </summary>
-        public PositionIdx? PositionIdx { get; set; } = default!;
+        public int? PositionIdx { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>riskId</c></value>
@@ -180,7 +180,7 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// Position status. Normal, Liq, Adl
         /// </para>
         /// </summary>
-        public PositionStatus? PositionStatus { get; set; } = default!;
+        public string PositionStatus { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>leverage</c></value>
@@ -189,6 +189,14 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// </para>
         /// </summary>
         public string Leverage { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>breakEvenPrice</c></value>
+        /// <para>
+        /// Break even price, Only for linear, inverse.
+        /// </para>
+        /// </summary>
+        public string BreakEvenPrice { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>markPrice</c></value>
@@ -223,12 +231,28 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         public string PositionIM { get; set; } = default!;
 
         /// <summary>
+        /// <value>Property <c>positionIMByMp</c></value>
+        /// <para>
+        /// Initial margin calculated by mark price, the same value as positionIM
+        /// </para>
+        /// </summary>
+        public string PositionIMByMp { get; set; } = default!;
+
+        /// <summary>
         /// <value>Property <c>positionMM</c></value>
         /// <para>
         /// Maintenance margin. For portfolio margin mode, it returns ""
         /// </para>
         /// </summary>
         public string PositionMM { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>positionMMByMp</c></value>
+        /// <para>
+        /// Maintenance margin calculated by mark price, the same value as positionMM
+        /// </para>
+        /// </summary>
+        public string PositionMMByMp { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>positionBalance</c></value>
@@ -423,6 +447,14 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// </para>
         /// </summary>
         public string UpdatedTime { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>openTime</c></value>
+        /// <para>
+        /// Position open timestamp (ms), default: 0 (testnet only)
+        /// </para>
+        /// </summary>
+        public string OpenTime { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>seq</c></value>

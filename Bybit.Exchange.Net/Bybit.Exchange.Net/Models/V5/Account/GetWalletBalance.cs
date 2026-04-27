@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Account
 {
@@ -73,7 +73,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// </item>
             /// </list>
             /// </summary>
-            public AccountType? AccountType { get; set; } = default!;
+            public string AccountType { get; set; } = default!;
 
             /// <summary>
             /// <value>Property <c>AccountLTV</c></value>
@@ -163,6 +163,38 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// </remarks>
             /// </summary>
             public string TotalMaintenanceMargin { get; set; } = default!;
+
+            /// <summary>
+            /// <value>Property <c>AccountIMRateByMp</c></value>
+            /// <remarks>
+            /// You can ignore this field, and refer to accountIMRate, which has the same calculation
+            /// </remarks>
+            /// </summary>
+            public string AccountIMRateByMp { get; set; } = default!;
+
+            /// <summary>
+            /// <value>Property <c>AccountMMRateByMp</c></value>
+            /// <remarks>
+            /// You can ignore this field, and refer to accountMMRate, which has the same calculation
+            /// </remarks>
+            /// </summary>
+            public string AccountMMRateByMp { get; set; } = default!;
+
+            /// <summary>
+            /// <value>Property <c>TotalInitialMarginByMp</c></value>
+            /// <remarks>
+            /// You can ignore this field, and refer to totalInitialMargin, which has the same calculation
+            /// </remarks>
+            /// </summary>
+            public string TotalInitialMarginByMp { get; set; } = default!;
+
+            /// <summary>
+            /// <value>Property <c>TotalMaintenanceMarginByMp</c></value>
+            /// <remarks>
+            /// You can ignore this field, and refer to totalMaintenanceMargin, which has the same calculation
+            /// </remarks>
+            /// </summary>
+            public string TotalMaintenanceMarginByMp { get; set; } = default!;
 
             /// <summary>
             /// <value>Property <c>Coin</c></value>
@@ -331,6 +363,14 @@ namespace Bybit.Exchange.Net.Models.V5.Account
             /// </para>
             /// </summary>
             public bool? CollateralSwitch { get; set; }
+
+            /// <summary>
+            /// <value>Property <c>SpotBorrow</c></value>
+            /// <para>
+            /// Borrow amount by spot margin trade and manual borrow amount (does not include borrow amount by spot margin active order)
+            /// </para>
+            /// </summary>
+            public string SpotBorrow { get; set; } = default!;
         }
     }
 }

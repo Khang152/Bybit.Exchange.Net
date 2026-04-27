@@ -321,7 +321,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Percent mode: [0.01,10]. Example: set 0.01, means 1% slippage is acceptable.
         /// </para>
         /// </summary>
-        public int? slippageTolerance { get; set; } = default!;
+        public string slippageTolerance { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>slippageToleranceType</c></value>
@@ -330,6 +330,24 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </summary>
         public string slippageToleranceType { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>bboSideType</c></value>
+        /// <para>
+        /// Queue: use the order price on the orderbook in the same direction as the side.
+        /// Counterparty: use the order price on the orderbook in the opposite direction as the side.
+        /// Valid for linear &amp; inverse
+        /// </para>
+        /// </summary>
+        public string bboSideType { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>bboLevel</c></value>
+        /// <para>
+        /// 1, 2, 3, 4, 5. Valid for linear &amp; inverse
+        /// </para>
+        /// </summary>
+        public string bboLevel { get; set; } = default!;
     }
 
     public class PlaceOrderResponse
