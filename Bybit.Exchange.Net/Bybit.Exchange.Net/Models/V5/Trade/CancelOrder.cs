@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -59,7 +59,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Order, tpslOrder, StopOrder. If not passed, Order by default
         /// </para>
         /// </summary>
-        public string orderFilter { get; set; } = default!;
+        public OrderFilter? orderFilter { get; set; } = default!;
     }
 
     public class CancelOrderResponse

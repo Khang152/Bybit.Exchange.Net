@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -312,6 +312,24 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </summary>
         public OrderType? slOrderType { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>slippageTolerance</c></value>
+        /// <para>
+        /// The tolerance of slippage for Spot market order.
+        /// TickSize mode: [1,10000]. Example: set 1, means 1 tickSize slippage is acceptable.
+        /// Percent mode: [0.01,10]. Example: set 0.01, means 1% slippage is acceptable.
+        /// </para>
+        /// </summary>
+        public int? slippageTolerance { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>slippageToleranceType</c></value>
+        /// <para>
+        /// The type of slippage tolerance. TickSize, Percent. For Spot market order only.
+        /// </para>
+        /// </summary>
+        public string slippageToleranceType { get; set; } = default!;
     }
 
     public class PlaceOrderResponse

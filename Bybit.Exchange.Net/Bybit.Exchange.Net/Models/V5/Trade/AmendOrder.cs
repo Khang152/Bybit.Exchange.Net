@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -163,6 +163,26 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </summary>
         public string slLimitPrice { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>tpOrderType</c></value>
+        /// <para>
+        /// The order type when take profit is triggered.
+        /// linear &amp; inverse: Market(default), Limit. For tpslMode=Full, it only supports tpOrderType=Market
+        /// Spot(UTA): Market: when you set "takeProfit", Limit: when you set "takeProfit" &amp; "tpLimitPrice"
+        /// </para>
+        /// </summary>
+        public OrderType? tpOrderType { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>slOrderType</c></value>
+        /// <para>
+        /// The order type when stop loss is triggered.
+        /// linear &amp; inverse: Market(default), Limit. For tpslMode=Full, it only supports slOrderType=Market
+        /// Spot(UTA): Market: when you set "stopLoss", Limit: when you set "stopLoss" &amp; "slLimitPrice"
+        /// </para>
+        /// </summary>
+        public OrderType? slOrderType { get; set; } = default!;
     }
 
     public class AmendOrderResponse

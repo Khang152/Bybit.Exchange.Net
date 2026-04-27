@@ -395,5 +395,15 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Order updated timestamp (ms)
         /// </summary>
         public string UpdatedTime { get; set; } = default!;
+
+        /// <summary>
+        /// Related TPSL order's link ID
+        /// </summary>
+        public string ParentOrderLinkId { get; set; } = default!;
+
+        /// <summary>
+        /// Cumulative trading fee details. linear, spot: replaces cumExecFee
+        /// </summary>
+        public Dictionary<string, string> CumFeeDetail { get; set; } = default!;
     }
 }

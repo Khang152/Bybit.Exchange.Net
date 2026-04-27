@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -45,7 +45,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Side
         /// </para>
         /// </summary>
-        public Side? side { get; set; } = default!;
+        public string Side { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>maxTradeQty</c></value>

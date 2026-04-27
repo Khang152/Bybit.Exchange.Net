@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -40,7 +40,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// Product type: linear, option | Covers: Option (UTA, UTA Pro) / USDT Perpetual, UDSC Perpetual, USDC Futures (UTA Pro)
         /// </para>
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string Category { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>symbol</c></value>

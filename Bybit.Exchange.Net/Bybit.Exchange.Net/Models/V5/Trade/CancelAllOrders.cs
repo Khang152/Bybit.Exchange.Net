@@ -1,4 +1,4 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
+using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Trade
 {
@@ -94,7 +94,7 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </remarks>
         /// </summary>
-        public string orderFilter { get; set; } = default!;
+        public OrderFilter? orderFilter { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>stopOrderType</c></value>

@@ -548,5 +548,29 @@ namespace Bybit.Exchange.Net.Models.V5.Trade
         /// </para>
         /// </summary>
         public string UpdatedTime { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>ParentOrderLinkId</c></value>
+        /// <para>
+        /// Related TPSL order's link ID
+        /// </para>
+        /// </summary>
+        public string ParentOrderLinkId { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>ExtraFees</c></value>
+        /// <para>
+        /// Trading fee rate information. Currently, this data is returned only for spot orders placed on the Indonesian site or spot fiat currency orders placed on the EU site. In other cases, an empty string is returned. Enum: feeType, subFeeType
+        /// </para>
+        /// </summary>
+        public string? ExtraFees { get; set; } = default!;
+
+        /// <summary>
+        /// <value>Property <c>CumFeeDetail</c></value>
+        /// <para>
+        /// Cumulative trading fee details. linear, spot: replaces cumExecFee
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> CumFeeDetail { get; set; } = default!;
     }
 }
