@@ -1,4 +1,3 @@
-﻿using static Bybit.Exchange.Net.Data.Enums;
 
 namespace Bybit.Exchange.Net.Models.V5.Account
 {
@@ -10,7 +9,7 @@ namespace Bybit.Exchange.Net.Models.V5.Account
         /// Account status
         /// </para>
         /// </summary>
-        public UnifiedMarginStatus? UnifiedMarginStatus { get; set; } = default!;
+        public int? UnifiedMarginStatus { get; set; } = default!;
 
         /// <summary>
         /// <value>Property <c>marginMode</c></value>
