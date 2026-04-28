@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,7 +57,7 @@ namespace Bybit.Exchange.Net.Models.V5.Position
         /// <summary>
         /// Product type (e.g., linear, inverse).
         /// </summary>
-        public Category? Category { get; set; } = default!;
+        public string Category { get; set; } = default!;
 
         /// <summary>
         /// List of closed PnL entries.
@@ -82,7 +82,7 @@ namespace Bybit.Exchange.Net.Models.V5.Position
             public string OrderId { get; set; } = default!;
 
             /// <summary>Side of the order. Buy or Sell.</summary>
-            public Side? Side { get; set; } = default!;
+            public string Side { get; set; } = default!;
 
             /// <summary>Order quantity.</summary>
             public string Qty { get; set; } = default!;
@@ -91,13 +91,13 @@ namespace Bybit.Exchange.Net.Models.V5.Position
             public string OrderPrice { get; set; } = default!;
 
             /// <summary>Order type. Market or Limit.</summary>
-            public OrderType? OrderType { get; set; } = default!;
+            public string OrderType { get; set; } = default!;
 
             /// <summary>
             /// Execution type.
             /// <para>Examples: Trade, BustTrade, SessionSettlePnL, Settle, MovePosition</para>
             /// </summary>
-            public ExecType? ExecType { get; set; } = default!;
+            public string ExecType { get; set; } = default!;
 
             /// <summary>Closed size of the position.</summary>
             public string ClosedSize { get; set; } = default!;
