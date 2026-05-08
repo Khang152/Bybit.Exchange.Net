@@ -186,6 +186,15 @@ await wsClient.SubscribePublicAsync(PublicChannelType.Spot,
     "publicTrade.ETHUSDT");
 ```
 
+### User-Agent Configuration
+By default, every API request includes a `User-Agent` header set to `Bybit.Exchange.Net/{version}`. You can customize it via `BybitRestOptions`:
+```csharp
+var client = new BybitRestClient(new BybitRestOptions()
+{
+    UserAgent = "MyTradingBot/1.0"
+});
+```
+
 ## Contributing Guide
  
 We welcome contributions to our project! 
