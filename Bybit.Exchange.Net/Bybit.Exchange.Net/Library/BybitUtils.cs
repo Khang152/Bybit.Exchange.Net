@@ -1,4 +1,4 @@
-﻿using Bybit.Exchange.Net.Extensions;
+using Bybit.Exchange.Net.Extensions;
 using Bybit.Exchange.Net.Models.Common;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,6 +12,8 @@ namespace Bybit.Exchange.Net.Library
         {
             string jsonPayload = requestData?.ToJsonString() ?? string.Empty;
             using var client = new HttpClient();
+            if (!string.IsNullOrEmpty(options.UserAgent))
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(options.UserAgent);
             HttpRequestMessage request = new(HttpMethod.Post, url)
             {
                 Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json")
@@ -56,6 +58,8 @@ namespace Bybit.Exchange.Net.Library
         {
             string queryString = GenerateQueryString(requestData);
             using var client = new HttpClient();
+            if (!string.IsNullOrEmpty(options.UserAgent))
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(options.UserAgent);
             var requestUrl = !string.IsNullOrEmpty(queryString) ? $"{url}?{queryString}" : url;
             var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
 
